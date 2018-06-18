@@ -62,6 +62,8 @@ None of the existing file formats were designed for the use case of efficiently 
 
 Different content creation tools may now provide 3D content in the glTF format. And an increasing number of client applications are able to consume and render glTF. Some of these applications are shown in [Image 1a](#applications-png). So glTF may help to bridge the gap between content creation and rendering, as shown in [Image 1c](#contentPipelineWithGltf-png).
 
+现在不同的内容创建工具可以提供glTF格式的3D内容。越来越多的客户端应用程序能够使用并呈现glTF。其中一些应用程序显示在[Image 1a]（＃applications-png）中。所以glTF可能有助于弥补内容创建和渲染之间的差距，如[Image 1c]（＃contentPipelineWithGltf-png）所示。
+
 <p align="center">
 <img src="images/contentPipelineWithGltf.png" /><br>
 <a name="contentPipelineWithGltf-png"></a>Image 1c: The 3D content pipeline with glTF.
