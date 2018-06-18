@@ -7,9 +7,11 @@ The core of glTF is a JSON file. This file describes the whole contents of the 3
 
 glTF的核心是一个JSON文件。该文件描述了3D场景的全部内容。它由场景结构本身的描述组成，由定义场景图的节点层次结构给出。出现在场景中的3D对象使用连接到节点的网格来定义。材料定义了对象的外观。动画描述3D对象如何随时间变换（例如，旋转平移），并且皮肤基于骨架姿态定义对象的几何形状如何变形。相机描述了渲染器的视图配置。
 
-## The JSON structure
+## The JSON structure  JSON结构
 
 The scene objects are stored in arrays in the JSON file. They can be accessed using the index of the respective object in the array:
+
+场景对象存储在JSON文件中的数组中。可以使用数组中相应对象的索引来访问它们：
 
 ```javascript
 "meshes" : 
@@ -22,6 +24,8 @@ The scene objects are stored in arrays in the JSON file. They can be accessed us
 
 These indices are also used to define the *relationships* between the objects. The example above defines multiple meshes, and a node may refer to one of these meshes, using the mesh index, to indicate that the mesh should be attached to this node:
 
+这些索引也用于定义对象之间的*关系*。上面的例子定义了多个网格，并且节点可以使用网格索引来引用这些网格中的一个，以指示网格应该附加到该节点：
+
 ```javascript
 "nodes:" 
 [
@@ -32,6 +36,8 @@ These indices are also used to define the *relationships* between the objects. T
 ```
 
 The following image (adapted from the [glTF concepts section](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#concepts)) gives an overview of the top-level elements of the JSON part of a glTF asset:
+
+以下图片概述了glTF中JSON部分的顶层元素：
 
 <p align="center">
 <img src="images/gltfJsonStructure.png" /><br>
