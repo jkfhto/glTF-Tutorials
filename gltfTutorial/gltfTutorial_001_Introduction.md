@@ -16,6 +16,8 @@ An increasing number of applications and services are based on 3D content. Onlin
 
 Demand for 3D content in various applications is constantly increasing. In many cases, the 3D content has to be transferred over the web, and it has to be rendered efficiently on the client side. But until now, there has been a gap between the 3D content creation and efficient rendering of that 3D content in the runtime applications.
 
+在各种应用中对3D内容的需求在不断增加。在很多情况下，3D内容必须通过网络传输，并且必须在客户端高效渲染。但是到目前为止，在运行时应用程序中，3D内容创建和3D内容的高效渲染之间存在差距。
+
 
 ## 3D content pipelines
 
