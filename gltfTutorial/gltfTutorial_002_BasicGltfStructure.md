@@ -64,9 +64,11 @@ These elements are summarized here quickly, to give an overview, with links to t
 
 
 
-## References to external data
+## References to external data  参考外部数据
 
 The binary data, like geometry and textures of the 3D objects, are usually not contained in the JSON file. Instead, they are stored in dedicated files, and the JSON part only contains links to these files. This allows the binary data to be stored in a form that is very compact and can efficiently be transferred over the web. Additionally, the data can be stored in a format that can be used directly in the renderer, without having to parse, decode, or preprocess the data.    
+
+二进制数据，如3D对象的几何图形和纹理，通常不包含在JSON文件中。相反，它们存储在专用文件中，JSON部分仅包含指向这些文件的链接。这允许二进制数据以非常紧凑的形式存储，并且可以通过网络高效地传输。另外，数据可以以可以直接在渲染器中使用的格式存储，而无需解析，解码或预处理数据。
 
 <p align="center">
 <img src="images/gltfStructure.png" /><br>
@@ -75,11 +77,15 @@ The binary data, like geometry and textures of the 3D objects, are usually not c
 
 As shown in the image above, there are two types of objects that may contain such links to external resources, namely `buffers` and `images`. These objects will later be explained in more detail.
 
+如上图所示，有两种类型的对象可能包含到外部资源的链接，即“buffers”和“images”。稍后将更详细地解释这些对象。
 
 
-## Reading and managing external data
+
+## Reading and managing external data  读取和管理外部数据
 
 Reading and processing a glTF asset starts with parsing the JSON structure. After the structure has been parsed, the [`buffer`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-buffer) and [`image`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-image) objects are available in the top-level `buffers` and `images` arrays, respectively. Each of these objects may refer to blocks of binary data. For further processing, this data is read into memory. Usually, the data will be be stored in an array so that they may be looked up using the same index that is used for referring to the `buffer` or `image` object that they belong to. 
+
+读取和处理glTF文件首先需要解析JSON结构。结构解析后，[`buffer`]和[`image`]对象分别位于顶层`buffers`和`images`数组中。这些对象中的每一个都可能涉及二进制数据块。为了进一步处理，这些数据被读入内存。通常，数据将被存储在一个数组中，以便可以使用与用于引用它们所属的“缓冲区”或“图像”对象相同的索引来查找数据。
 
 
 ## Binary data in `buffers`
