@@ -7,6 +7,7 @@
 # Introduction to glTF using WebGL
 
 An increasing number of applications and services are based on 3D content. Online shops offer product configurators with a 3D preview. Museums digitize their artifacts with 3D scans and allow visitors to explore their collections in virtual galleries. City planners use 3D city models for planning and information visualization. Educators create interactive, animated 3D models of the human body. Many of these applications run directly in the web browser, which is possible because all modern browsers support efficient rendering with WebGL.
+
 越来越多的应用程序和服务都基于3D内容。网上商店提供带3D预览的产品配置器。博物馆利用3D扫描数字化他们的工件，并允许访客在虚拟画廊中探索他们的收藏。城市规划人员使用3D城市模型进行规划和信息可视化。教育者可以创建交互式的人体动画3D模型。许多这些应用程序直接在Web浏览器中运行，这是可能的，因为所有现代浏览器都支持使用WebGL进行高效渲染。
 
 <p align="center">
@@ -23,7 +24,11 @@ Demand for 3D content in various applications is constantly increasing. In many 
 
 3D content that is rendered in client applications comes from different sources and is stored in different file formats. The [list of 3D graphics file formats on Wikipedia](https://en.wikipedia.org/wiki/List_of_file_formats#3D_graphics) shows an overwhelming number, with more than 70 different file formats for 3D data, serving different purposes and application cases.  
 
+在客户端应用程序中呈现的3D内容来自不同的来源，并以不同的文件格式存储。维基百科上的显示拥有超过70种不同的3D数据文件格式，可用于不同的目的和应用案例。
+
 For example, raw 3D data may be obtained with a 3D scanner. These scanners usually provide the geometry data of a single object, which is stored in [OBJ](https://en.wikipedia.org/wiki/Wavefront_.obj_file), [PLY](https://en.wikipedia.org/wiki/PLY_(file_format)), or [STL](https://en.wikipedia.org/wiki/STL_(file_format)) files. These file formats do not contain information about the scene structure or how the objects should be rendered.
+
+例如，可以用3D扫描仪获得原始3D数据。这些扫描仪通常提供单个对象的几何数据，该数据存储在[OBJ]，[PLY]或[STL]格式的文件中。这些文件格式不包含场景结构的信息或者应该如何呈现对象的信息。.
 
 More sophisticated 3D scenes can be created with authoring tools. These tools allow one to edit the structure of the scene, the light setup, cameras, animations, and, of course, the 3D geometry of the objects that appear in the scene. Applications store this information in their own, custom file formats. For example, [Blender](https://www.blender.org/) stores the scenes in `.blend` files, [LightWave3D](https://www.lightwave3d.com/) uses the `.lws` file format, [3ds Max](http://www.autodesk.com/3dsmax) uses the `.max` file format, and [Maya](http://www.autodesk.com/maya) uses `.ma` files.
 
