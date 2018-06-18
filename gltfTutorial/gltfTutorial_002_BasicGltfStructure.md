@@ -37,7 +37,7 @@ These indices are also used to define the *relationships* between the objects. T
 
 The following image (adapted from the [glTF concepts section](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#concepts)) gives an overview of the top-level elements of the JSON part of a glTF asset:
 
-以下图片概述了glTF中JSON部分的顶层元素：
+下面的图片概述了glTF中JSON的结构组成：
 
 <p align="center">
 <img src="images/gltfJsonStructure.png" /><br>
@@ -47,7 +47,11 @@ The following image (adapted from the [glTF concepts section](https://github.com
 
 These elements are summarized here quickly, to give an overview, with links to the respective sections of the glTF specification. More detailed explanations of the relationships between these elements will be given in the following sections.
 
+这些元素在这里快速汇总，给出一个概述，并链接到glTF规范的各个部分。下面将详细解释这些元素之间的关系。
+
 - The [`scene`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-scene) is the entry point for the description of the scene that is stored in the glTF. It refers to the `node`s that define the scene graph.
+
+[`scene`]是存储在glTF中的场景描述的入口点。它指的是定义场景图的`节点`。
 - The [`node`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-node) is one node in the scene graph hierarchy. It can contain a transformation (e.g., rotation or translation), and it may refer to further (child) nodes. Additionally, it may refer to `mesh` or `camera` instances that are "attached" to the node, or to a `skin` that describes a mesh deformation.
 - The [`camera`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-camera) defines the view configuration for rendering the scene.
 - A [`mesh`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-mesh) describes a geometric object that appears in the scene. It refers to `accessor` objects that are used for accessing the actual geometry data, and to `material`s that define the appearance of the object when it is rendered.
