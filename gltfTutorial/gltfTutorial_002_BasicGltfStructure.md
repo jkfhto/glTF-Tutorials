@@ -49,11 +49,9 @@ These elements are summarized here quickly, to give an overview, with links to t
 
 这些元素在这里快速汇总，给出一个概述，并链接到glTF规范的各个部分。下面将详细解释这些元素之间的关系。
 
-- The [`scene`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-scene) is the entry point for the description of the scene that is stored in the glTF. It refers to the `node`s that define the scene graph.
-
-[`scene`]是存储在glTF中的场景描述的入口点。它指的是定义场景图的`节点`。
-- The [`node`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-node) is one node in the scene graph hierarchy. It can contain a transformation (e.g., rotation or translation), and it may refer to further (child) nodes. Additionally, it may refer to `mesh` or `camera` instances that are "attached" to the node, or to a `skin` that describes a mesh deformation.
-- The [`camera`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-camera) defines the view configuration for rendering the scene.
+- The [`scene`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-scene) is the entry point for the description of the scene that is stored in the glTF. It refers to the `node`s that define the scene graph. [`scene`]是存储在glTF中的场景描述的入口点。它指的是定义场景图的`节点`。
+- The [`node`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-node) is one node in the scene graph hierarchy. It can contain a transformation (e.g., rotation or translation), and it may refer to further (child) nodes. Additionally, it may refer to `mesh` or `camera` instances that are "attached" to the node, or to a `skin` that describes a mesh deformation.[`node`]是场景图层次结构中的一个节点。它可以包含一个转换（例如，旋转或平移），它可以引用更多（子）节点。此外，它可能指的是“连接”到节点的“网格”或“照相机”实例，或者描述网格变形的“蒙皮”。
+- The [`camera`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-camera) defines the view configuration for rendering the scene.[`camera`]定义了渲染场景的视图配置。
 - A [`mesh`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-mesh) describes a geometric object that appears in the scene. It refers to `accessor` objects that are used for accessing the actual geometry data, and to `material`s that define the appearance of the object when it is rendered.
 - The [`skin`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-skin) defines parameters that are required for vertex skinning, which allows the deformation of a mesh based on the pose of a virtual character. The values of these parameters are obtained from an `accessor`.
 - An [`animation`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-animation) describes how transformations of certain nodes (e.g., rotation or translation) change over time.
