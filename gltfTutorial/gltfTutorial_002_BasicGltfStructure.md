@@ -1,9 +1,11 @@
 Previous: [Introduction](gltfTutorial_001_Introduction.md) | [Table of Contents](README.md) | Next: [A Minimal glTF File](gltfTutorial_003_MinimalGltfFile.md)
 
 
-# The Basic Structure of glTF
+# The Basic Structure of glTF  glTF的基本结构
 
 The core of glTF is a JSON file. This file describes the whole contents of the 3D scene. It consists of a description of the scene structure itself, which is given by a hierarchy of nodes that define a scene graph. The 3D objects that appear in the scene are defined using meshes that are attached to the nodes. Materials define the appearance of the objects. Animations describe how the 3D objects are transformed (e.g., rotated to translated) over time, and skins define how the geometry of the objects is deformed based on a skeleton pose. Cameras describe the view configuration for the renderer.
+
+glTF的核心是一个JSON文件。该文件描述了3D场景的全部内容。它由场景结构本身的描述组成，由定义场景图的节点层次结构给出。出现在场景中的3D对象使用连接到节点的网格来定义。材料定义了对象的外观。动画描述3D对象如何随时间变换（例如，旋转平移），并且皮肤基于骨架姿态定义对象的几何形状如何变形。相机描述了渲染器的视图配置。
 
 ## The JSON structure
 
