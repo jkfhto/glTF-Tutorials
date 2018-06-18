@@ -7,6 +7,7 @@
 # Introduction to glTF using WebGL
 
 An increasing number of applications and services are based on 3D content. Online shops offer product configurators with a 3D preview. Museums digitize their artifacts with 3D scans and allow visitors to explore their collections in virtual galleries. City planners use 3D city models for planning and information visualization. Educators create interactive, animated 3D models of the human body. Many of these applications run directly in the web browser, which is possible because all modern browsers support efficient rendering with WebGL.
+越来越多的应用程序和服务都基于3D内容。网上商店提供带3D预览的产品配置器。博物馆利用3D扫描数字化他们的工件，并允许访客在虚拟画廊中探索他们的收藏。城市规划人员使用3D城市模型进行规划和信息可视化。教育者可以创建交互式的人体动画3D模型。许多这些应用程序直接在Web浏览器中运行，这是可能的，因为所有现代浏览器都支持使用WebGL进行高效渲染。
 
 <p align="center">
 <img src="images/applications.png" /><br>
