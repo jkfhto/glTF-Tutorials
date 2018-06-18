@@ -32,6 +32,9 @@ For example, raw 3D data may be obtained with a 3D scanner. These scanners usual
 
 More sophisticated 3D scenes can be created with authoring tools. These tools allow one to edit the structure of the scene, the light setup, cameras, animations, and, of course, the 3D geometry of the objects that appear in the scene. Applications store this information in their own, custom file formats. For example, [Blender](https://www.blender.org/) stores the scenes in `.blend` files, [LightWave3D](https://www.lightwave3d.com/) uses the `.lws` file format, [3ds Max](http://www.autodesk.com/3dsmax) uses the `.max` file format, and [Maya](http://www.autodesk.com/maya) uses `.ma` files.
 
+使用创作工具可以创建更复杂的3D场景。这些工具允许编辑场景的结构，灯光设置，摄像机，动画，当然还有场景中出现的物体的3D几何。应用程序以自己的自定义文件格式存储这些信息。例如，[Blender]（https://www.blender.org/）将场景存储在`.blend`文件中，[LightWave3D]（https://www.lightwave3d.com/）使用`.lws`文件格式，[3ds Max]（http://www.autodesk.com/3dsmax）使用`.max`文件格式，[Maya]（http://www.autodesk.com/maya）使用`.ma`文件。
+
+
 In order to render such 3D content, the runtime application must be able to read different input file formats. The scene structure has to be parsed, and the 3D geometry data has to be converted into the format required by the graphics API. The 3D data has to be transferred to the graphics card memory, and then the rendering process can be described with sequences of graphics API calls. Thus, each runtime application has to create importers, loaders, or converters for all file formats that it will support, as shown in [Image 1b](#contentPipeline-png).
 
 <p align="center">
