@@ -62,7 +62,7 @@ None of the existing file formats were designed for the use case of efficiently 
 
 Different content creation tools may now provide 3D content in the glTF format. And an increasing number of client applications are able to consume and render glTF. Some of these applications are shown in [Image 1a](#applications-png). So glTF may help to bridge the gap between content creation and rendering, as shown in [Image 1c](#contentPipelineWithGltf-png).
 
-现在不同的内容创建工具可以提供glTF格式的3D内容。越来越多的客户端应用程序能够使用并呈现glTF。其中一些应用程序显示在[Image 1a]（＃applications-png）中。所以glTF可能有助于弥补内容创建和渲染之间的差距，如[Image 1c]（＃contentPipelineWithGltf-png）所示。
+现在不同的内容创建工具可以提供glTF格式的3D内容。越来越多的客户端应用程序能够使用并呈现glTF。其中一些应用程序显示在[Image 1a]中。所以glTF可能有助于弥补内容创建和渲染之间的差距，如[Image 1c]所示。
 
 <p align="center">
 <img src="images/contentPipelineWithGltf.png" /><br>
@@ -70,6 +70,8 @@ Different content creation tools may now provide 3D content in the glTF format. 
 </p>
 
 An increasing number of content creation tools will be able to provide glTF directly. Alternatively, other file formats can be used to create glTF assets, using one of the open-source conversion utilities listed in the [Khronos glTF repository](https://github.com/KhronosGroup/glTF#converters). For example, nearly all authoring applications can export their scenes in the [COLLADA](https://www.khronos.org/collada/) format. So the [COLLADA2GLTF](https://github.com/KhronosGroup/COLLADA2GLTF) tool can be used to convert scenes and models from these authoring applications to glTF. `OBJ` files may be converted to glTF using [obj2gltf](https://github.com/AnalyticalGraphicsInc/obj2gltf). For other file formats, custom converters can be used to create glTF assets, thus making the 3D content available for a broad range of runtime applications.
+
+越来越多的内容创作工具将能够直接提供glTF。或者，可以使用其他文件格式创建glTF，使用[Khronos glTF存储库]中列出的开放源代码转换实用程序。例如，几乎所有创作应用程序都可以使用[COLLADA]格式导出场景。因此，[COLLADA2GLTF]工具可用于将场景和模型从这些创作应用程序转换为glTF。 `OBJ`文件可以使用[obj2gltf]转换为glTF。对于其他文件格式，可以使用自定义转换器创建glTF资源，从而使3D内容可用于应用程序。
 
 
 [Table of Contents](README.md) | Next: [Basic glTF Structure](gltfTutorial_002_BasicGltfStructure.md)
