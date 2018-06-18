@@ -45,14 +45,20 @@ In order to render such 3D content, the runtime application must be able to read
 </p>
 
 
-## glTF: A transmission format for 3D scenes
+## glTF: A transmission format for 3D scenes 3D场景的传输格式
 
 The goal of glTF is to define a standard for representing 3D content, in a form that is suitable for use in runtime applications. The existing file formats are not appropriate for this use case: some of do not contain any scene information, but only geometry data; others have been designed for exchanging data between authoring applications, and their main goal is to retain as much information about the 3D scene as possible, resulting in files that are usually large, complex, and hard to parse. Additionally, the geometry data may have to be preprocessed so that it can be rendered with the client application.
 
+glTF的目标是定义一个展示3D内容的标准，以适合在应用程序中使用。现有的文件格式不适合这种用例：其中一些不包含任何场景信息，但仅包含几何数据;其他设计用于在应用程序之间交换数据，其主要目标是尽可能多地保留关于3D场景的信息，从而导致文件通常较大，很复杂且难以解析。此外，几何数据可能必须进行预处理，以便可以使用客户端应用程序进行渲染。
+
 None of the existing file formats were designed for the use case of efficiently transferring 3D scenes over the web and rendering them as efficiently as possible. But glTF is not "yet another file format." It is the definition of a *transmission* format for 3D scenes:
 
+没有一种现有的文件格式被设计用于通过网络高效地传送3D场景并尽可能高效地渲染它们。但是glTF不是“另一种文件格式”。它是3D场景的*传输格式的定义：
+
 - The scene structure is described with JSON, which is very compact and can easily be parsed.
+场景结构用JSON描述，非常紧凑，可以轻松解析。
 - The 3D data of the objects are stored in a form that can be directly used by the common graphics APIs, so there is no overhead for decoding or pre-processing the 3D data.
+对象的3D数据以可以由公共图形API直接使用的形式存储，因此不存在解码或预处理3D数据的开销。
 
 Different content creation tools may now provide 3D content in the glTF format. And an increasing number of client applications are able to consume and render glTF. Some of these applications are shown in [Image 1a](#applications-png). So glTF may help to bridge the gap between content creation and rendering, as shown in [Image 1c](#contentPipelineWithGltf-png).
 
