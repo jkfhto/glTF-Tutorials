@@ -88,9 +88,11 @@ Reading and processing a glTF asset starts with parsing the JSON structure. Afte
 读取和处理glTF文件首先需要解析JSON结构。结构解析后，[`buffer`]和[`image`]对象分别位于顶层`buffers`和`images`数组中。这些对象中的每一个都可能涉及二进制数据块。为了进一步处理，这些数据被读入内存。通常，数据将被存储在一个数组中，以便可以使用与用于引用它们所属的“缓冲区”或“图像”对象相同的索引来查找数据。
 
 
-## Binary data in `buffers`
+## Binary data in `buffers` “buffers”中的二进制数据
 
 A [`buffer`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-buffer) contains a URI that points to a file containing the raw, binary buffer data:
+
+[`buffer`]包含一个指向原始二进制缓冲区数据文件的URI：
 
 ```javascript
 "buffer01": {
@@ -102,9 +104,11 @@ A [`buffer`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/
 
 This binary data is just a raw block of memory that is read from the URI of the `buffer`, with no inherent meaning or structure. The [Buffers, BufferViews, and Accessors](gltfTutorial_005_BuffersBufferViewsAccessors.md) section will show how this raw data is extended with information about data types and the data layout. With this information, one part of the data may, for example, be interpreted as animation data, and another part may be interpreted as geometry data. Storing the data in a binary form allows it to be transferred over the web much more efficiently than in the JSON format, and the binary data can be passed directly to the renderer without having to decode or pre-process it. 
 
+这个二进制数据只是从buffer的URI读取的原始内存块，没有固有的含义或结构。 [缓冲区，缓冲区视图和访问器]部分将显示如何使用有关数据类型和数据布局的信息扩展此原始数据。利用这些信息，例如，数据的一部分可以被解释为动画数据，而另一部分可以被解释为几何数据。以二进制形式存储数据允许通过网络以比JSON格式更高效地传输数据，并且二进制数据可以直接传递给渲染器而无需解码或预处理它。
 
 
-## Image data in `images`
+
+## Image data in `images` “images”中的Image数据
 
 An [`image`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-image) may refer to an external image file that can be used as the texture of a rendered object:
 
@@ -116,12 +120,16 @@ An [`image`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/
 
 The reference is given as a URI that usually points to a PNG or JPG file. These formats significantly reduce the size of the files so that they may efficiently be transferred over the web. In some cases, the `image` objects may not refer to an external file, but to data that is stored in a `buffer`. The details of this indirection will be explained in the [Textures, Images, and Samplers](gltfTutorial_016_TexturesImagesSamplers.md) section. 
 
+该参考文献是作为指向PNG或JPG文件的URI提供的。这些格式显著减小了文件的大小，以便它们可以通过网络高效传输。在某些情况下，`image`对象可能不会引用外部文件，而是引用存储在“buffer”中的数据。具体细节将在[纹理，图像和采样器]部分进行说明。
+
 
 
 
 ## Binary data in data URIs
 
-Usually, the URIs that are contained in the `buffer` and `image` objects will point to a file that contains the actual data. As an alternative, the data may be *embedded* into the JSON, in binary format, by using a [data URI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs).
+Usually, the URIs that are contained in the `buffer` and `image` objects will point to a file that contains the actual data. As an alternative, the data may be *embedded* into the JSON, in binary format, by using a [data URI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs).、
+
+通常，`buffer`和`image`对象中包含的URI将指向一个包含实际数据的文件。或者，可以使用[数据URI]采用二进制格式将数据*嵌入到JSON中。
 
 
 Previous: [Introduction](gltfTutorial_001_Introduction.md) | [Table of Contents](README.md) | Next: [A Minimal glTF File](gltfTutorial_003_MinimalGltfFile.md)
