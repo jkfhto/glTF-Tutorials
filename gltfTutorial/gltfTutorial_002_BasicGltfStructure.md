@@ -129,7 +129,7 @@ The reference is given as a URI that usually points to a PNG or JPG file. These 
 
 Usually, the URIs that are contained in the `buffer` and `image` objects will point to a file that contains the actual data. As an alternative, the data may be *embedded* into the JSON, in binary format, by using a [data URI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs).、
 
-通常，`buffer`和`image`对象中包含的URI将指向一个包含实际数据的文件。或者，可以使用[数据URI]采用二进制格式将数据*嵌入到JSON中。
+通常，`buffer`和`image`对象中包含的URI将指向一个包含实际数据的文件。或者，可以使用[data URI]采用二进制格式将数据*嵌入到JSON中。
 
 
 Previous: [Introduction](gltfTutorial_001_Introduction.md) | [Table of Contents](README.md) | Next: [A Minimal glTF File](gltfTutorial_003_MinimalGltfFile.md)
