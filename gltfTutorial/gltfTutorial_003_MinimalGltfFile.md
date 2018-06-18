@@ -268,7 +268,7 @@ When this `mesh.primitive` has to be rendered, the renderer can resolve the unde
 
 In glTF 1.0, this property is still optional, but in subsequent glTF versions, the JSON file is required to contain an `asset` property that contains the `version` number. The example here says that the asset complies to glTF version 2.0:
 
-在glTF 1.0中，该属性仍然是可选的，但在随后的glTF版本中，JSON文件必须包含`version`编号的`asset`属性。这里的例子说这个文件符合glTF 2.0标准：
+在glTF 1.0中，该属性仍然是可选的，但在随后的glTF版本中，JSON文件必须包含`version`编号的`asset`属性。这里的例子说明这个文件符合glTF 2.0标准：
 
 ```javascript
   "asset" : {
