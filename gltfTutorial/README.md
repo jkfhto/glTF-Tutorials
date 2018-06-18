@@ -3,6 +3,7 @@
 By Marco Hutter, [@javagl](https://github.com/javagl)
 
 This tutorial gives an introduction to [glTF](https://www.khronos.org/gltf), the GL transmission format. It summarizes the most important features and application cases of glTF, and describes the structure of the files that are related to glTF. It explains how glTF assets may be read, processed, and used to display 3D graphics efficiently.
+
 本教程介绍GL传输格式glTF。 它总结了glTF最重要的特性和应用案例，并描述了与glTF相关的文件结构。 它解释了如何读取，处理和使用glTF来有效地显示3D图形
 
 Some basic knowledge about [JSON](http://json.org/), the JavaScript Object Notation, is assumed. Additionally, a basic understanding of common graphics APIs, like OpenGL or WebGL, is required.
