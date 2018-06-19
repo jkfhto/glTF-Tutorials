@@ -29,12 +29,16 @@ Explaining the implementation of physically based rendering is beyond the scope 
 
 Image 14b shows the effect of the roughness texture: the main part of the bottle has a low roughness, causing it to appear shiny, compared to the cap, which has a rough surface structure.
 
+图14b显示粗糙纹理的效果：与具有粗糙表面结构的瓶盖相比，瓶的主要部分具有低粗糙度，使其看起来有光泽。
+
 <p align="center">
 <img src="images/advancedMaterial_roughness.png" /><br>
 <a name="advancedMaterial_roughness-png"></a>Image 14b: The influence of the roughness texture.
 </p>
 
 Image 14c highlights the effect of the metallic texture: the bottle reflects the light from the surrounding environment map.
+
+图像14c突出了金属质感的效果：瓶子反射周围环境贴图中的光线。
 
 <p align="center">
 <img src="images/advancedMaterial_metallic.png" /><br>
