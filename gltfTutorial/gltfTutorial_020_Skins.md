@@ -184,11 +184,15 @@ The last panel of Image 20c shows how the geometry would look like if it were *o
 Image 20c的最后一个面板显示了几何体如果仅用关节1的关节矩阵进行变换时的外观。几何体的这种状态永远不会真正可见：在顶点着色器中计算的实际几何体将联合其他几何体因为它们是基于关节和权重根据不同的关节矩阵创建的。
 
 
-### The skinning joints and weights
+### The skinning joints and weights  关节蒙皮和权重
 
 As mentioned above, the mesh primitive contains new attributes that are required for the vertex skinning. Particularly, these are the `"JOINTS_0"` and the `"WEIGHTS_0"` attributes. Each attribute refers to an accessor that provides one data element for each vertex of the mesh.
 
+如上所述，网格基元包含顶点蒙皮所需的新属性。特别是“JOINTS_0”和“WEIGHTS_0”属性。每个属性指的是为网格的每个顶点提供一个数据元素的访问器。
+
 The `"JOINTS_0"` attribute refers to an accessor that contains the indices of the joints that should have an influence on the vertex during the skinning process. For simplicity and efficiency, these indices are usually stored as 4D vectors, limiting the number of joints that may influence a vertex to 4. In the given example, the joints information is very simple:
+
+“JOINTS_0”属性指的是一个访问器，该访问器包含了蒙皮动画过程中对顶点有影响的关节索引。为了简单和高效，这些索引通常存储为4D向量，将可能影响顶点的关节数量限制为4.在给定示例中，关节信息非常简单：
 
     Vertex 0:  0, 1, 0, 0,
     Vertex 1:  0, 1, 0, 0,
@@ -207,7 +211,12 @@ This means that every vertex should be influenced by joint 0 and joint 1. (The l
 
 meaning that the corresponding vertex should be influenced by the joints 3, 1, 8, and 4.)
 
+这意味着每个顶点应该受到关节0和关节1的影响（每个向量的最后2个分量在这里被忽略了，如果有多个关节，那么这个访问器的一个条目可以包含3，1，8，4，
+意味着相应的顶点应该受到关节3，1，8和4的影响。）
+
 The `"WEIGHTS_0"` attribute refers to an accessor that provides information about how strongly each joint should influence each vertex. In the given example, the weights are as follows:
+
+“WEIGHTS_0”属性指的是一个访问器，该访问器定义了每个关节节点对顶点产生影响的权重值。在给出的例子中，权重如下：
 
     Vertex 0:  1.00,  0.00,  0.0, 0.0,
     Vertex 1:  1.00,  0.00,  0.0, 0.0,
@@ -222,9 +231,16 @@ The `"WEIGHTS_0"` attribute refers to an accessor that provides information abou
 
 Again, the last two components of each entry are not relevant, because there are only two joints.
 
+同样，每个条目的最后两个组件不相关，因为只有两个关节。
+
 Combining the `"JOINTS_0"` and `"WEIGHTS_0"` attributes yields exact information about the influence that each joint has on each vertex. For example, the given data means that vertex 6 should be influenced to 25% by joint 0 and to 75% by joint 1.
 
+结合“JOINTS_0”和“WEIGHTS_0”属性可以得到每个关节对每个顶点的影响的确切信息。例如，给定的数据意味着顶点6应该被关节0影响25％，被关节1影响75％。
+
 In the vertex shader, this information is used to create a linear combination of the joint matrices. This matrix is called the *skin matrix* of the respective vertex. Therefore, the data of the `"JOINTS_0"` and `"WEIGHTS_0"` attributes are passed to the shader. In this example, they are given as the `a_joint` and `a_weight` attribute variable, respectively:
+
+在顶点着色器中，该信息用于创建关节矩阵的线性组合。这个矩阵被称为相应顶点的皮肤矩阵。因此，“JOINTS_0”和“WEIGHTS_0”属性的数据将传递给着色器。在这个例子中，它们分别作为a_joint和a_weight属性变量给出：
+
 
 ```glsl
 ...
@@ -246,6 +262,8 @@ void main(void)
 }
 ```
 The skin matrix is then used to transform the original position of the vertex before it is transformed with the model-view-matrix. The result of this transformation can be imagined as a weighted transformation of the vertices with the respective joint matrices, as shown in Image 20d.
+
+然后在顶点的原始位置用模型视图矩阵变换之前使用蒙皮矩阵对其进行变换。如图20d所示，这种变换的结果可以想象成具有各自关节矩阵的顶点的加权变换。
 
 <p align="center">
 <img src="images/skinSkinMatrix.png" /><br>
