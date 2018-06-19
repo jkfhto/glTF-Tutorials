@@ -208,6 +208,8 @@ The following is a minimal example that shows a mesh with two morph targets. The
 
 The asset contains an animation that interpolates between the different morph targets for a single triangle. A screenshot of this asset is shown in Image 21a.
 
+该文件包含一个动画，可在单个三角形的不同变形目标之间进行插值。这个文件的屏幕截图显示在Image 21a中。
+
 <p align="center">
 <img src="images/simpleMorph.png" /><br>
 <a name="simpleMorph-png"></a>Image 21a: A triangle with two morph targets.
@@ -216,7 +218,11 @@ The asset contains an animation that interpolates between the different morph ta
 
 Most of the elements of this asset have already been explained in the previous sections: It contains a `scene` with a single `node` and a single `mesh`. There are two `buffer` objects, one storing the geometry data and one storing the data for the `animation`, and several `bufferView` and `accessor` objects that provide access to this data.
 
+这个文件的大部分元素已经在前面的章节中解释过了：它包含一个带有单个节点和单个网格的场景。有两个缓冲区对象，一个存储几何数据另一个存储动画数据，以及几个对这些数据进行访问的bufferView和accessor对象。
+
 The new elements that have been added in order to define the morph targets are contained in the `mesh` and the `animation`:
+
+为了定义变形目标而添加的新元素包含在mesh和animation中：
 
 
 ```javascript
@@ -249,6 +255,8 @@ The new elements that have been added in order to define the morph targets are c
 
 The `mesh.primitive` contains an array of [morph `targets`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#morph-targets). Each morph target is a dictionary that maps attribute names to `accessor` objects. In the example, there are two morph targets, both mapping the `"POSITION"` attribute to accessors that contain the morphed vertex positions. The mesh also contains an array of `weights` that defines the contribution of each morph target to the final, rendered mesh. These weights are also the `channel.target` of the `animation` that is contained in the asset:
 
+mesh.primitive包含一个[morph `targets`]数组。每个变形目标是一个将属性名称映射到访问器对象的字典。在该示例中，有两个变形目标，都将“POSITION”属性映射到包含变形顶点位置的访问器。网格还包含一组权重，用于定义每个变形目标对最终渲染网格的贡献。是文件中包含的动画的channel.target的权重：
+
 ```javascript
   "animations":[
     {
@@ -274,6 +282,8 @@ The `mesh.primitive` contains an array of [morph `targets`](https://github.com/K
 ```
 
 This means that the animation will modify the `weights` of the mesh that is referred to by the `target.node`. The result of applying the animation to these weights, and the computation of the final, rendered mesh will be explained in more detail in the next section about [Morph Targets](gltfTutorial_018_MorphTargets.md).
+
+这意味着动画将修改target.node引用的网格的权重。在下一节[Morph Targets]章节中详细介绍将动画应用于这些权重以及最终渲染网格的计算。
 
 
 
