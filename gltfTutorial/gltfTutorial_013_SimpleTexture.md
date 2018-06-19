@@ -1,8 +1,10 @@
 Previous: [Textures, Images, and Samplers](gltfTutorial_012_TexturesImagesSamplers.md) | [Table of Contents](README.md) | Next: [Advanced Material](gltfTutorial_014_AdvancedMaterial.md)
 
-# A Simple Texture
+# A Simple Texture  简单的纹理
 
 As shown in the previous sections, the material definition in a glTF asset contains different parameters for the color of the material or the overall appearance of the material under the influence of light. These properties may be given via single values, for example, defining the color or the roughness of the object as a whole. Alternatively, these values may be provided via textures that are mapped on the object surface. The following is a glTF asset that defines a material with a simple, single texture:
+
+如前面部分所示，glTF资源中的材质属性包含材质颜色或光线影响下材质整体外观的不同参数。这些属性可以通过单个值给出，例如，定义整个对象的颜色或粗糙度。或者，这些值可以通过映射在对象表面上的纹理提供。以下是定义具有单一纹理材质的glTF文件：
 
 ```javascript
 {
@@ -97,6 +99,8 @@ As shown in the previous sections, the material definition in a glTF asset conta
 
 The actual image that the texture consists of is stored as a PNG file called `"testTexture.png"` (see Image 15a).
 
+纹理组成的实际图像被存储为名为“testTexture.png”的PNG文件（见图15a）。
+
 <p align="center">
 <img src="images/testTexture.png" /><br>
 <a name="testTexture-png"></a>Image 15a: The image for the simple texture example.
@@ -110,9 +114,11 @@ Bringing this all together in a renderer will result in the scene rendered in Im
 </p>
 
 
-## The Textured Material Definition
+## The Textured Material Definition  纹理材质定义
 
 The material definition in this example differs from the [Simple Material](gltfTutorial_011_SimpleMaterial.md) that was shown earlier. While the simple material only defined a single color for the whole object, the material definition now refers to the newly added texture:
+
+此示例中的材质定义与前面[Simple Material]章节中显示的不同。虽然简单材质仅为整个对象定义了单一颜色，但材质定义现在指的是新添加的纹理：
 
 ```javascript
 "materials" : [ {
@@ -128,7 +134,12 @@ The material definition in this example differs from the [Simple Material](gltfT
 
 The `baseColorTexture` is the index of the texture that will be applied to the object surface. The `metallicFactor` and `roughnessFactor` are still single values. A more complex material where these properties are also given via textures will be shown in the next section.
 
+baseColorTexture是将应用于对象表面的纹理的索引。 metallicFactor和roughnessFactor仍然是单个值。下一节将介绍更复杂的材料，其中这些属性也是通过纹理给出的。
+
+
 In order to apply a texture to a mesh primitive, there must be information about the texture coordinates that should be used for each vertex. The texture coordinates are only another attribute for the vertices defined in the `mesh.primitive`. By default, a texture will use the texture coordinates that have the attribute name `TEXCOORD_0`. If there are multiple sets of texture coordinates, the one that should be used for one particular texture may be selected by adding a `texCoord` property to the texture reference:
+
+为了将纹理应用到网格基元，必须有关于每个顶点的纹理坐标的信息。纹理坐标只是mesh.primitive中定义的顶点的另一个属性。默认情况下，纹理将使用具有属性名称TEXCOORD_0的纹理坐标。如果有多组纹理坐标，用于一个特定纹理的纹理可以通过向texture reference添加一个texCoord属性来选择：
 
 ```javascript
 "baseColorTexture" : {
@@ -137,6 +148,8 @@ In order to apply a texture to a mesh primitive, there must be information about
 },
 ```
 In this case, the texture would use the texture coordinates that are contained in the attribute called `TEXCOORD_2`.
+
+在这种情况下，纹理将使用名为TEXCOORD_2的属性中包含的纹理坐标。
 
 
 Previous: [Textures, Images, and Samplers](gltfTutorial_012_TexturesImagesSamplers.md) | [Table of Contents](README.md) | Next: [Advanced Material](gltfTutorial_014_AdvancedMaterial.md)
