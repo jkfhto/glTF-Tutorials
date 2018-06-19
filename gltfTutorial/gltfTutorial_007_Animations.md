@@ -99,15 +99,21 @@ In order to compute the value of the translation for the current animation time,
 
 Imagine the `currentTime` is **1.2**. The next smaller element from the *times* accessor is **0.8**. The next larger element is **1.6**. So
 
+想象一下当前的时间是1.2。 times访问器中的下一个较小元素是0.8。下一个较大的元素是1.6。所以
+
     previousTime = 0.8
     nextTime     = 1.6
 
 The corresponding values from the *translations* accessor can be looked up:
 
+可以查找translations访问器的相应值：
+
     previousTranslation = (14.0, 3.0, -2.0)
     nextTranslation     = (18.0, 1.0,  1.0)
 
 The interpolation value can be computed:
+
+插值计算：
 
     interpolationValue = (currentTime - previousTime) / (nextTime - previousTime)
                        = (1.2 - 0.8) / (1.6 - 0.8)
@@ -116,12 +122,16 @@ The interpolation value can be computed:
 
 From the interpolation value, the current translation can be computed:
 
+从插值中，可以计算当前的平移：
+
     currentTranslation = previousTranslation + interpolationValue * (nextTranslation - previousTranslation)
                        = (14.0, 3.0, -2.0) + 0.5 * ( (18.0, 1.0,  1.0) - (14.0, 3.0, -2.0) )
                        = (14.0, 3.0, -2.0) + 0.5 * (4.0, -2.0, 3.0)
                        = (16.0, 2.0, -0.5)
 
 So when the current time is **1.2**, then the `translation` of the node is **(16.0, 2.0, -0.5)**.
+
+所以当前时间为1.2时，节点的translation为（16.0,2.0，-0.5）。
 
 
 
