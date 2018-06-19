@@ -139,7 +139,7 @@ So when the current time is **1.2**, then the `translation` of the node is **(16
 
 The animations contain an array of [`animation.channel`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#channel) objects. The channels establish the connection between the input, which is the value that is computed from the sampler, and the output, which is the animated node property. Therefore, each channel refers to one sampler, using the index of the sampler, and contains an [`animation.channel.target`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-target). The `target` refers to a node, using the index of the node, and contains a `path` that defines the property of the node that should be animated. The value from the sampler will be written into this property.
 
-动画包含一组animation.channel对象。通道建立输入（即从采样器计算的值）和输出（即动画节点属性）之间的连接。因此，每个通道使用采样器的索引引用一个采样器，并包含一个animation.channel.target。目标使用节点的索引引用节点，并包含一个path，该路径定义应该动画化的节点的属性。来自采样器的值将被写入该属性。
+animations包含一组animation.channel对象。通道建立输入（即从采样器计算的值）和输出（即动画节点属性）之间的连接。因此，每个通道使用采样器的索引引用一个采样器，并包含一个animation.channel.target。目标使用节点的索引引用节点，并包含一个path，该路径定义应该动画化的节点的属性。来自采样器的值将被写入该属性。
 
 In the example above, there are two channels for the animation. Both refer to the same node. The path of the first channel refers to the `translation` of the node, and the path of the second channel refers to the `rotation` of the node. So all objects (meshes) that are attached to the node will be translated and rotated by the animation, as shown in Image 7b.
 
