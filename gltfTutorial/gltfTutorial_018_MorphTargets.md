@@ -46,7 +46,7 @@ The actual base geometry of the mesh, namely the triangle geometry, is defined b
 
 The `weights` of the mesh determine how these morph target displacements are added to the initial geometry in order to obtain the current state of the geometry. The pseudocode for computing the rendered vertex positions for a mesh `primitive` is as follows:
 
-网格的权重确定如何将这些变形目标位移添加到初始几何体以获得几何体的当前状态。用于计算网格基元的渲染顶点位置的伪代码如下所示：
+网格的权重确定如何将这些变形目标的位移添加到初始几何体以获得几何体的当前状态。用于计算网格基元的渲染顶点位置的伪代码如下所示：
 ```
 renderedPrimitive.POSITION = primitive.POSITION + 
   weights[0] * primitive.targets[0].POSITION +
