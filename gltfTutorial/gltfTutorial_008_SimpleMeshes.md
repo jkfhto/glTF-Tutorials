@@ -148,7 +148,7 @@ As can be seen in Image 8a, the mesh is rendered *twice*. This is accomplished b
 
 The `mesh` property of each node refers to the mesh that is attached to the node, using the index of the mesh. One of the nodes has a `translation` that causes the attached mesh to be rendered at a different position. 
 
-每个节点的mesh属性使用网格的索引附加到该节点的网格。其中一个节点的translation会导致附加的网格呈现在不同的位置。
+每个节点的mesh属性使用网格的索引指向附加到该节点的网格。其中一个节点的translation会导致附加的网格呈现在不同的位置。
 
 The [next section](gltfTutorial_009_Meshes.md) will explain meshes and mesh primitives in more detail.
 
