@@ -37,7 +37,7 @@ The example in the previous section contains a mesh that consists of a single tr
 
 The actual base geometry of the mesh, namely the triangle geometry, is defined by the `mesh.primitive` attribute called `"POSITIONS"`. The morph targets of the `mesh.primitive` are dictionaries that map the attribute name `"POSITIONS"` to `accessor` objects that contain the *displacements* for each vertex. Image 22a shows the initial triangle geometry in black, and the displacement for the first morph target in red, and the displacement for the second morph target in green.
 
-网格的实际几何，即三角几何，由名为“POSITIONS”的mesh.primitive属性定义。 mesh.primitive的变形目标是将属性名称“POSITIONS”映射到包含每个顶点的位移的accessor对象的字典。图22a显示了黑色的初始三角形几何图形，第一个变形目标的位移为红色，第二个变形目标的位移为绿色。
+网格的实际几何，即三角几何，由名为“POSITIONS”的mesh.primitive属性定义。 mesh.primitive的变形目标是将属性名称“POSITIONS”映射到包含每个顶点的位移的accessor对象的字典。图22a显示了用黑色表示的初始三角形几何图形，第一个变形目标的位移用红色表示，第二个变形目标的位移用绿色表示。
 
 <p align="center">
 <img src="images/simpleMorphInitial.png" /><br>
@@ -45,6 +45,8 @@ The actual base geometry of the mesh, namely the triangle geometry, is defined b
 </p>
 
 The `weights` of the mesh determine how these morph target displacements are added to the initial geometry in order to obtain the current state of the geometry. The pseudocode for computing the rendered vertex positions for a mesh `primitive` is as follows:
+
+网格的权重确定如何将这些变形目标位移添加到初始几何体以获得几何体的当前状态。用于计算网格基元的渲染顶点位置的伪代码如下所示：
 ```
 renderedPrimitive.POSITION = primitive.POSITION + 
   weights[0] * primitive.targets[0].POSITION +
@@ -53,7 +55,11 @@ renderedPrimitive.POSITION = primitive.POSITION +
 
 This means that the current state of the mesh primitive is computed by taking the initial mesh primitive geometry and adding a linear combination of the morph target displacements, where the `weights` are the factors for the linear combination.
 
+这意味着网格基元的当前状态是通过取初始网格基元几何并添加变形目标位移的线性组合来计算的，其中权重是线性组合的因子。
+
 The asset additionally contains an `animation` that affects the weights for the morph targets. The following table shows the key frames of the animated weights:
+
+该文件还包含了影响变形目标的权重的动画。下表显示了动画权重的关键帧：
 
 | Time | Weights   |
 |:----:|:---------:|
@@ -65,6 +71,8 @@ The asset additionally contains an `animation` that affects the weights for the 
 
 
 Throughout the animation, the weights are interpolated linearly, and applied to the morph target displacements. At each point, the rendered state of the mesh primitive is updated accordingly. The following is an example of the state that is computed at 1.25 seconds.
+
+在整个动画中，权重线性插值，并应用于变形目标位移。在每个点处，网格基元的渲染状态都会相应更新。以下是在1.25秒时计算的状态示例。
 
 <p align="center">
 <img src="images/simpleMorphIntermediate.png" /><br>
