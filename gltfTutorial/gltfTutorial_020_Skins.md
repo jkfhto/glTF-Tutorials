@@ -93,7 +93,7 @@ skin是顶点蒙皮的核心元素。在这个例子中，有一个单一的皮�
 
 The skin contains an array called `joints`, which lists the indices of the nodes that define the skeleton hierarchy. Additionally, the skin contains a reference to an accessor in the property `inverseBindMatrices`. This accessor provides one matrix for each joint. Each of these matrices transforms the geometry into the space of the respective joint. This means that each matrix is the *inverse* of the global transform of the respective joint, in its initial configuration. In the given example, this inverse of the initial global transform is the same for both joint nodes:
 
-skin包含一个名为“joints”的数组，其中列出了定义骨架层次结构的节点的索引。此外，skin包含对属性inverseBindMatrices中的访问器的引用。该访问器为每个关节提供一个矩阵。这些矩阵可以将几何形状转换到相应关节的空间中。这意味着每个矩阵在其初始配置中是相应关节的全局变换的逆矩阵。在给定的例子中，对于两个联合节点，初始全局变换的这个逆是相同的：
+skin包含一个名为“joints”的数组，其中列出了定义骨架层次结构的节点的索引。此外，skin包含对属性inverseBindMatrices中的访问器的引用。该访问器为每个关节提供一个矩阵。这些矩阵可以将几何形状转换到相应关节对应的空间中。这意味着每个矩阵在其初始配置中是相应关节的全局变换的逆矩阵。在给定的例子中，对于两个联合节点，初始全局变换的这个逆是相同的：
 
     1.0   0.0   0.0    0.0   
     0.0   1.0   0.0   -1.0   
