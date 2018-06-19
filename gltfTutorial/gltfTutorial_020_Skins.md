@@ -102,6 +102,8 @@ skin包含一个名为“joints”的数组，其中列出了定义骨架层次�
 
 This matrix translates the mesh about -1 along the y-axis, as shown Image 20b.
 
+该矩阵将网格沿着y轴平移-1，如图20b所示。
+
 <p align="center">
 <img src="images/skinInverseBindMatrix.png" /><br>
 <a name="skinInverseBindMatrix-png"></a>Image 20b: The transformation of the geometry with the inverse bind matrix of joint 1.
@@ -109,14 +111,20 @@ This matrix translates the mesh about -1 along the y-axis, as shown Image 20b.
 
 This transformation may look counterintuitive at first glance. But the goal of this transformation is to "undo" the transformation that is done by the initial global transform of the respective joint node so that the influences of the joint to the mesh vertices may be computed based on their actual global transform. 
 
+乍看之下，这种转变可能看起来不符合直觉。但是这种变换的目标是“撤销”由相应节点的初始全局变换完成的变换，从而可以基于它们的实际全局变换来计算节点对网格顶点的影响。
 
-## Vertex skinning implementation
+
+## Vertex skinning implementation  顶点蒙皮实现
 
 Users of existing rendering libraries will hardly ever have to manually process the vertex skinning data contained in a glTF asset: the actual skinning computations usually take place in the vertex shader, which is a low-level implementation detail of the respective library. However, knowing how the vertex skinning data is supposed to be processed may help to create proper, valid models with vertex skinning. So this section will give a short summary of how the vertex skinning is applied, using some pseudocode and examples in GLSL.
 
-### The joint matrices
+现有渲染库的用户几乎不需要手动处理包含在glTF资源中的顶点蒙皮数据：实际的蒙皮计算通常发生在顶点着色器中，这是相应库的低级实现细节。但是，知道顶点蒙皮数据应该如何处理可能有助于创建具有正确，有效的顶点蒙皮的模型。因此，本节将简要介绍如何使用GLSL中的一些伪代码和示例应用顶点蒙皮。
+
+### The joint matrices 关节矩阵
 
 The vertex positions of a skinned mesh are eventually computed by the vertex shader. During these computations, the vertex shader has to take into account the current pose of the skeleton in order to compute the proper vertex position. This information is passed to the vertex shader as an array of matrices, namely as the *joint matrices*. This is an array - that is, a `uniform` variable - that contains one 4&times;4 matrix for each joint of the skeleton. In the shader, these matrices are combined to compute the actual skinning matrix for each vertex:
+
+顶点着色器最终计算蒙皮网格的顶点位置。在这些计算过程中，顶点着色器必须考虑骨架的当前姿态以计算适当的顶点位置。该信息作为矩阵数组传递给顶点着色器，即作为关节矩阵。这是一个数组 - 也就是一个统一变量 - 对于骨架的每个关节都包含一个4×4矩阵。在着色器中，将这些矩阵组合起来计算每个顶点的实际蒙皮矩阵：
 
 
 ```glsl
@@ -137,11 +145,21 @@ void main(void)
 
 The joint matrix for each joint has to perform the following transformations to the vertices:
 
+每个关节的关节矩阵必须对顶点执行以下转换：
+
 - The vertices have to be prepared to be transformed with the *current* global transform of the joint node. Therefore, they are transformed with the `inverseBindMatrix` of the joint node. This is the inverse of the global transform of the joint node *in its original state*, when no animations have been applied yet.
+
+顶点必须准备好用关节节点的当前全局变换进行变换。因此，它们用关节节点的inverseBindMatrix进行转换。这是在尚未应用动画时，关节节点处于其原始状态下全局变换的逆矩阵。
 - The vertices have to be transformed with the *current* global transform of the joint node. Together with the transformation from the `inverseBindMatrix`, this will cause the vertices to be transformed only based on the current transform of the node, in the coordinate space of the current joint node.
+
+顶点必须用关节节点的当前全局变换进行变换。连同来自inverseBindMatrix的变换，这将导致顶点仅在当前节点的坐标空间中基于节点的当前变换进行变换。
 - The vertices have to be transformed with *inverse* of the global transform of the node that the mesh is attached to, because this transform is already done using the model-view-matrix, and thus has to be cancelled out from the skinning computation.
 
+顶点必须用网格所附节点的全局变换的逆来变换，因为这个变换已经使用模型 - 视图 - 矩阵完成了，因此必须从蒙皮计算中消除。
+
 So the pseudocode for computing the joint matrix of joint `j` may look as follows:
+
+因此，计算关节j的关节矩阵的伪代码可能看起来如下：
 
     jointMatrix(j) =
       globalTransformOfNodeThatTheMeshIsAttachedTo^-1 *
@@ -150,7 +168,11 @@ So the pseudocode for computing the joint matrix of joint `j` may look as follow
       
 Note: Vertex skinning in other contexts often involves a matrix that is called "Bind Shape Matrix". This matrix is supposed to transform the geometry of the skinned mesh into the coordinate space of the joints. In glTF, this matrix is omitted, and it is assumed that this transform is either premultiplied with the mesh data, or postmultiplied to the inverse bind matrices. 
 
+注意：在其他上下文中的顶点蒙皮通常涉及一个称为“Bind Shape Matrix”的矩阵。这个矩阵使蒙皮网格几何对象在关节坐标空间中进行几何变换。在glTF中，这个矩阵使被省略的，并且假定这个变换预先与网格数据相乘，或者被后乘到逆矩阵。
+
 Image 20c shows the transformations that are done to the geometry in the [Simple Skin](gltfTutorial_019_SimpleSkin.md) example, using the joint matrix of joint 1. The image shows the transformation for an intermediate state of the animation, namely, when the rotation of the joint node has already been modified by the animation, to describe a rotation about 45 degrees around the z-axis.
+
+图20c示展示了使用关节1的关节矩阵对[Simple Skin]示例中的几何进行的变换。图像展示了动画的中间状态的变换，即，当关节节点的旋转已经由动画修改，描述围绕z轴旋转45度。
 
 <p align="center">
 <img src="images/skinJointMatrices.png" /><br>
@@ -158,6 +180,8 @@ Image 20c shows the transformations that are done to the geometry in the [Simple
 </p>
 
 The last panel of Image 20c shows how the geometry would look like if it were *only* transformed with the joint matrix of joint 1. This state of the geometry is never really visible: The *actual* geometry that is computed in the vertex shader will *combine* the geometries as they are created from the different joint matrices, based on the joints- and weights that are explained below.
+
+Image 20c的最后一个面板显示了几何体如果仅用关节1的关节矩阵进行变换时的外观。几何体的这种状态永远不会真正可见：在顶点着色器中计算的实际几何体将联合其他几何体因为它们是基于关节和权重根据不同的关节矩阵创建的。
 
 
 ### The skinning joints and weights
