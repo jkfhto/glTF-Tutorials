@@ -38,7 +38,7 @@ and the indices of the triangles are 三角形的索引是
 
 The raw data is stored in the first `buffer`. The indices and vertex positions are defined by the `bufferView` objects at index 0 and 1, and the corresponding `accessor` objects at index 0 and 1 offer typed access to these buffer views. Image 20a shows this geometry with outline rendering to better show the structure.
 
-原始数据存储在第一个buffer中。索引和顶点位置由索引0和1处的bufferView对象定义，索引0和1处的bufferView对象对应的accessor对象提供对这些缓冲区视图的类型访问权限。图像20a显示为了更好地显示结构对这个几何轮廓进行渲染。
+原始数据存储在第一个buffer中。索引和顶点位置由索引0和1处的bufferView对象定义，索引0和1处的bufferView对象对应的accessor对象提供对这些缓冲区视图的类型访问权限。图像20a显示了为了更好地显示结构对这个几何体轮廓进行了渲染。
 
 <p align="center">
 <img src="images/simpleSkinOutline01.png" /><br>
