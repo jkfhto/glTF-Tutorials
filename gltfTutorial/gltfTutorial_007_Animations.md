@@ -76,7 +76,7 @@ In order to compute the value of the translation for the current animation time,
 
     `previousTranslation` = The element from the *translations* accessor that corresponds to the `previousTime`
     
-    translations存取器中对应于previousTime的元素
+    translations存取器中与previousTime对应的元素
 
     `nextTranslation` = The element from the *translations* accessor that corresponds to the `nextTime`
     
