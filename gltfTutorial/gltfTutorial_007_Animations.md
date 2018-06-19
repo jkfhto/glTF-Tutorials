@@ -1,10 +1,14 @@
 Previous: [Simple Animation](gltfTutorial_006_SimpleAnimation.md) | [Table of Contents](README.md) | Next: [Simple Meshes](gltfTutorial_008_SimpleMeshes.md)
 
-# Animations
+# Animations 动画
 
 As shown in the [Simple Animation](gltfTutorial_006_SimpleAnimation.md) example, an [`animation`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-animation) can be used to describe how the `translation`, `rotation`, or `scale` properties of nodes change over time.
 
+如[Simple Animation]示例所示，可以使用动画来描述节点的平移，旋转或缩放属性随时间变化的方式。
+
 The following is another example of an `animation`. This time, the animation contains two channels. One animates the translation, and the other animates the rotation of a node:
+
+以下是animation的另一个例子。这一次，动画包含两个频道。一个动画是代表平移，另一个动画代表节点的旋转：
 
 ```javascript
   "animations": [
@@ -41,10 +45,12 @@ The following is another example of an `animation`. This time, the animation con
   ],
 ```
 
-
-## Animation samplers
+ 
+## Animation samplers 动画采样器
 
 The `samplers` array contains [`animation.sampler`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#animation-sampler) objects that define how the values that are provided by the accessors have to be interpolated between the key frames, as shown in Image 7a.
+
+采样器数组包含animation.sampler对象，用于定义访问器提供的值必须如何插入关键帧之间，如图7a所示。
 
 <p align="center">
 <img src="images/animationSamplers.png" /><br>
@@ -52,6 +58,8 @@ The `samplers` array contains [`animation.sampler`](https://github.com/KhronosGr
 </p>
 
 In order to compute the value of the translation for the current animation time, the following algorithm can be used:
+
+为了计算当前动画时间的平移值，可以使用以下算法：
 
 * Let the current animation time be given as `currentTime`.
 * Compute the next smaller and the next larger element of the *times* accessor:
