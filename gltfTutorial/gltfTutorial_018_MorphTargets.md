@@ -1,8 +1,10 @@
 Previous: [Simple Morph Target](gltfTutorial_017_SimpleMorphTarget.md) | [Table of Contents](README.md) | Next: [SimpleSkin](gltfTutorial_019_SimpleSkin.md)
 
-# Morph Targets
+# Morph Targets  变形目标
 
 The example in the previous section contains a mesh that consists of a single triangle with two morph targets:
+
+上一节中的示例展示了一个具有两个变形目标的单个三角形组成的网格：
 
 ```javascript
 {
@@ -34,6 +36,8 @@ The example in the previous section contains a mesh that consists of a single tr
 
 
 The actual base geometry of the mesh, namely the triangle geometry, is defined by the `mesh.primitive` attribute called `"POSITIONS"`. The morph targets of the `mesh.primitive` are dictionaries that map the attribute name `"POSITIONS"` to `accessor` objects that contain the *displacements* for each vertex. Image 22a shows the initial triangle geometry in black, and the displacement for the first morph target in red, and the displacement for the second morph target in green.
+
+网格的实际几何，即三角几何，由名为“POSITIONS”的mesh.primitive属性定义。 mesh.primitive的变形目标是将属性名称“POSITIONS”映射到包含每个顶点的位移的accessor对象的字典。图22a显示了黑色的初始三角形几何图形，第一个变形目标的位移为红色，第二个变形目标的位移为绿色。
 
 <p align="center">
 <img src="images/simpleMorphInitial.png" /><br>
