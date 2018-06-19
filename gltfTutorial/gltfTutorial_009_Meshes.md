@@ -105,7 +105,7 @@ The second node has a `translation` property. As shown in the [Scenes and Nodes]
 
 So in this example, the mesh will be rendered twice because it is attached to two nodes: once with the global transform of the first node, which is the identity transform, and once with the global transform of the second node, which is a translation of 1.0 along the x-axis.
 
-所以在这个例子中，网格将被渲染两次，因为它被连接到两个节点上：一次是第一个节点的全局变换，这是身份变换，一次是第二个节点的全局变换，这是一个沿着x轴平移1.0的变换。
+所以在这个例子中，网格将被渲染两次，因为它被连接到两个节点上：一次是第一个节点的全局变换，一次是第二个节点的全局变换，这是一个沿着x轴平移1.0的变换。
 
 
 
