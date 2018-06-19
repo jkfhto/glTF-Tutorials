@@ -1,10 +1,14 @@
 Previous: [Cameras](gltfTutorial_016_Cameras.md) | [Table of Contents](README.md) | Next: [Morph Targets](gltfTutorial_018_MorphTargets.md)
 
-# A Simple Morph Target
+# A Simple Morph Target  一个简单的变形目标
 
 Starting with version 2.0, glTF supports the definition of *morph targets* for meshes. A morph target stores displacements or differences for certain mesh attributes. At runtime, these differences may be added to the original mesh, with different weights, in order to animate parts of the mesh. This is often used in character animations, for example, to encode different facial expressions of a virtual character.
 
+从版本2.0开始，glTF支持网格变形目标的定义。变形目标存储某些网格属性的位移或差异。在运行时，可以将这些差异添加到具有不同权重的原始网格中，以便为网格的局部制作动画。这通常用于角色动画，例如，编码虚拟角色的不同面部表情。
+
 The following is a minimal example that shows a mesh with two morph targets. The new elements will be summarized here, and the broader concept of morph targets and how they are applied at runtime will be explained in the next section.
+
+以下是具有两个变形目标的网格的最小示例。这些新元素将在这里进行总结，而变体目标的更广泛概念以及它们在运行时的应用方式将在下一部分进行解释。
 
 
 ```javascript
