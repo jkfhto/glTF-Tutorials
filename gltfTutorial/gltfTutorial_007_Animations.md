@@ -50,7 +50,7 @@ The following is another example of an `animation`. This time, the animation con
 
 The `samplers` array contains [`animation.sampler`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#animation-sampler) objects that define how the values that are provided by the accessors have to be interpolated between the key frames, as shown in Image 7a.
 
-采样器数组包含animation.sampler对象，用于定义访问器提供的值必须如何插入关键帧之间，如图7a所示。
+samplers数组包含animation.sampler对象，用于定义访问器提供的值必须如何插入关键帧之间，如图7a所示。
 
 <p align="center">
 <img src="images/animationSamplers.png" /><br>
