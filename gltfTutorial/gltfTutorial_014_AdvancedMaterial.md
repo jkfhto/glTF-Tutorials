@@ -4,15 +4,19 @@ Previous: [Simple Texture](gltfTutorial_013_SimpleTexture.md) | [Table of Conten
 
 The [Simple Texture](gltfTutorial_013_SimpleTexture.md) example in the previous section showed a material for which the "base color" was defined using a texture. But in addition to the base color, there are other properties of a material that may be defined via textures. These properties have already been summarized in the [Materials](gltfTutorial_010_Materials.md) section:
 
-- The *base color*,
-- The *metallic* value,
-- The *roughness* of the surface,
-- The *emissive* properties,
-- An *occlusion* texture, and
-- A *normal map*.
+上一节中的[Simple Texture]示例展示了使用纹理为其定义“基本颜色”的材质。但除了基本颜色之外，还可以通过纹理定义材质的其他属性。这些属性已经在[Materials]部分进行了总结：
+
+- The *base color*,  基本颜色
+- The *metallic* value,  金属值，
+- The *roughness* of the surface,  表面的粗糙度
+- The *emissive* properties,  emissive性质
+- An *occlusion* texture, and  遮挡纹理
+- A *normal map*.  法线贴图
 
 
 The effects of these properties cannot properly be demonstrated with trivial textures. Therefore, they will be shown here using one of the official Khronos PBR sample models, namely, the [WaterBottle](https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0/WaterBottle) model. Image 14a shows an overview of the textures that are involved in this model, and the final rendered object:
+
+这些属性的影响不能用简单的纹理来精确地表现出来。因此，他们将使用Khronos官方 PBR样本模型之一的WaterBottle模型来显示。图14a显示了该模型中涉及的纹理以及最终渲染对象的概览：
 
 <p align="center">
 <img src="images/materials.png" /><br>
@@ -20,6 +24,8 @@ The effects of these properties cannot properly be demonstrated with trivial tex
 </p>
 
 Explaining the implementation of physically based rendering is beyond the scope of this tutorial. The official Khronos [WebGL PBR repository](https://github.com/KhronosGroup/glTF-WebGL-PBR) contains a reference implementation of a PBR renderer based on WebGL, and provides implementation hints and background information. The following images mainly aim at demonstrating the effects of the different material property textures, under different lighting conditions.
+
+解释基于物理渲染的实现超出了本教程的范围。Khronos官方文档 [WebGL PBR repository]包含基于WebGL的PBR渲染器的参考实现，并提供实现提示和背景信息。以下图像主要旨在演示不同光照条件下不同材质属性纹理的效果。
 
 Image 14b shows the effect of the roughness texture: the main part of the bottle has a low roughness, causing it to appear shiny, compared to the cap, which has a rough surface structure.
 
@@ -50,6 +56,8 @@ Image 14e shows the part of the bottl cap for which a normal map is defined: the
 </p>
 
 Together, these textures and maps allow modeling a wide range of real-world materials. Thanks to the common underlying PBR model - namely, the metallic-roughness model - the objects can be rendered consistently by different renderer implementations.
+
+这些纹理和贴图一起使用可以模拟各种真实世界的材质。由于都基于PBR模型 - 即金属粗糙度模型 - 不同的渲染器可以实现一致地渲染效果。
 
 
 
