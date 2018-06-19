@@ -5,10 +5,14 @@ Previous: [Simple Skin](gltfTutorial_019_SimpleSkin.md) | [Table of Contents](RE
 
 The process of vertex skinning is a bit complex. It brings together nearly all elements that are contained in a glTF asset. This section will explain the basics of vertex skinning, based on the example in the [Simple Skin](gltfTutorial_019_SimpleSkin.md) section.
 
+顶点蒙皮的实现过程有点复杂。它汇集了glTF文件中的几乎所有元素。本节将根据[Simple Skin]部分中的示例解释顶点蒙皮的基础知识。
 
-## The geometry data
+
+## The geometry data  几何数据
 
 The geometry of the vertex skinning example is an indexed triangle mesh, consisting of 8 triangles and 10 vertices. They form a rectangle in the xy-plane, with the lower left point at the origin (0,0,0), and the upper right point at (1,2,0). So the positions of the vertices are
+
+顶点蒙皮示例的几何图形是一个索引的三角形网格，由8个三角形和10个顶点组成。它们在xy平面上形成一个矩形，其左下角指向原点（0,0,0），右上角指向（1,2,0）。所以顶点的位置是
 
     0.0, 0.0, 0.0,
     1.0, 0.0, 0.0,
@@ -21,7 +25,7 @@ The geometry of the vertex skinning example is an indexed triangle mesh, consist
     0.0, 2.0, 0.0,
     1.0, 2.0, 0.0
 
-and the indices of the triangles are
+and the indices of the triangles are 三角形的索引是
 
     0, 1, 3,
     0, 3, 2,
@@ -34,6 +38,8 @@ and the indices of the triangles are
 
 The raw data is stored in the first `buffer`. The indices and vertex positions are defined by the `bufferView` objects at index 0 and 1, and the corresponding `accessor` objects at index 0 and 1 offer typed access to these buffer views. Image 20a shows this geometry with outline rendering to better show the structure.
 
+原始数据存储在第一个buffer中。索引和顶点位置由索引0和1处的bufferView对象定义，索引0和1处的bufferView对象对应的accessor对象提供对这些缓冲区视图的类型访问权限。图像20a显示为了更好地显示结构对这个几何轮廓进行渲染。
+
 <p align="center">
 <img src="images/simpleSkinOutline01.png" /><br>
 <a name="simpleSkinOutline01-png"></a>Image 20a: The geometry for the skinning example, with outline rendering, in its initial configuration.
@@ -41,10 +47,14 @@ The raw data is stored in the first `buffer`. The indices and vertex positions a
 
 This geometry data is contained in the mesh primitive of the only mesh, which is attached to the main node of the scene. The mesh primitive contains additional attributes, namely the `"JOINTS_0"` and `"WEIGHTS_0"` attributes. The purpose of these attributes will be explained below.
 
+该几何数据包含在唯一网格的网格基元中，该网格连接到场景的主节点。网格基元包含附加属性，即“JOINTS_0”和“WEIGHTS_0”属性。这些属性的目的将在下面解释。
 
-## The skeleton structure
+
+## The skeleton structure  骨架结构
 
 In the given example, there are two nodes that define the skeleton. They are referred to as "skeleton nodes", or "joint nodes", because they can be imagined as the joints between the bones of the skeleton. The `skin` refers to these nodes, by listing their indices in its `joints` property.
+
+在给定的例子中，有两个节点定义骨架。它们被称为“骨架节点”或“关节节点”，因为它们可以想象成骨架骨骼之间的关节。皮肤通过在其joints属性中指定索引来引用这些节点。
 
 ```javascript
   "nodes" : [ 
@@ -62,10 +72,14 @@ In the given example, there are two nodes that define the skeleton. They are ref
 
 The first joint node has a `translation` property, defining a translation about 1.0 along the y-axis. The second joint node has a `rotation` property that initially describes a rotation about 0 degrees (thus, no rotation at all). This rotation will later be changed by the animation to let the skeleton bend left and right and show the effect of the vertex skinning.
 
+第一个关节节点具有平移特性，沿y轴进行1.0的平移。第二个关节节点指定了0度旋转的旋转属性（因此根本不旋转）。此旋转稍后将由动画更改，以使骨架向左和向右弯曲并显示顶点蒙皮的效果。
+
 ## The skin
 
 
 The `skin` is the core element of the vertex skinning. In the example, there is a single skin:
+
+skin是顶点蒙皮的核心元素。在这个例子中，有一个单一的皮肤：
 
 ```javascript
   "skins" : [ 
@@ -78,6 +92,8 @@ The `skin` is the core element of the vertex skinning. In the example, there is 
 ```
 
 The skin contains an array called `joints`, which lists the indices of the nodes that define the skeleton hierarchy. Additionally, the skin contains a reference to an accessor in the property `inverseBindMatrices`. This accessor provides one matrix for each joint. Each of these matrices transforms the geometry into the space of the respective joint. This means that each matrix is the *inverse* of the global transform of the respective joint, in its initial configuration. In the given example, this inverse of the initial global transform is the same for both joint nodes:
+
+skin包含一个名为“joints”的数组，其中列出了定义骨架层次结构的节点的索引。此外，skin包含对属性inverseBindMatrices中的访问器的引用。该访问器为每个关节提供一个矩阵。这些矩阵可以将几何形状转换到相应关节的空间中。这意味着每个矩阵在其初始配置中是相应关节的全局变换的逆矩阵。在给定的例子中，对于两个联合节点，初始全局变换的这个逆是相同的：
 
     1.0   0.0   0.0    0.0   
     0.0   1.0   0.0   -1.0   
