@@ -47,12 +47,16 @@ Image 14c highlights the effect of the metallic texture: the bottle reflects the
 
 Image 14d shows the emissive part of the texture: regardless of the dark environment setting, the text, which is contained in the emissive texture, is clearly visible.
 
+图像14d显示了纹理的发射部分：无论黑暗的环境如何设置，包含在发射纹理中的文本都清晰可见
+
 <p align="center">
 <img src="images/advancedMaterial_emissive.png" /><br>
 <a name="advancedMaterial_emissive-png"></a>Image 14d: The emissive part of the texture.
 </p>
 
 Image 14e shows the part of the bottl cap for which a normal map is defined: the text appears to be embossed into the cap. This makes it possible to model finer geometric details on the surface, even though the model itself only has a very coarse geometric resolution.
+
+图14e显示了定义法线贴图的瓶盖的部分：文字似乎压印在瓶盖中。这使得可以在表面上建立更精细的几何细节，即使模型本身只具有非常粗糙的几何分辨率。
 
 <p align="center">
 <img src="images/advancedMaterial_normal.png" /><br>
