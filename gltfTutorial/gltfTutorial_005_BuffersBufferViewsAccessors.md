@@ -30,7 +30,7 @@ A [`buffer`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/
 
 Parts of the data of a `buffer` may have to be passed to the renderer as vertex attributes, or as indices, or the data may contain skinning information or animation key frames. In order to be able to use this data, additional information about the structure and type of this data is required.
 
-部分buffer数据可能作为顶点属性或索引传递给渲染器，或者可能包含蒙皮信息或动画关键帧信息。为了能够使用这些数据，需要有关这些数据的结构和类型的附加信息。
+buffer数据可能作为顶点属性或索引传递给渲染器，或者可能包含蒙皮信息或动画关键帧信息。为了能够使用这些数据，需要有关这些数据的结构和类型的附加信息。
 
 
 ## BufferViews
