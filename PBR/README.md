@@ -1,4 +1,4 @@
-# Physically-Based Rendering: From Theory to glTF  基于物理的渲染：从理论到glTF
+# Physically-Based Rendering: From Theory to glTF  <br>基于物理的渲染：从理论到glTF
 Mohamad Moneimne, University of Pennsylvania
 
 ## What is PBR?
@@ -11,21 +11,21 @@ The goal of this article is to provide some intuition behind PBR theory and cove
 <img src=https://www.marmoset.co/wp-content/uploads/2014/01/layering01.jpg></img>
 From Marmoset Toolbag Tutorials: [Physically-Based Rendering, And You Can Too!](https://www.marmoset.co/posts/physically-based-rendering-and-you-can-too/), by Joe "Earthquake" Wilson
 
-## How do we model light-object interactions in PBR?  我们如何模拟PBR中的光对象交互？
+## How do we model light-object interactions in PBR?  <br>我们如何模拟PBR中的光对象交互？
 The physics law most central to PBR is the law of conservation of energy. This law states that the total amount of energy within an isolated system remains constant, but how does this relate to rendering? In PBR, radiance is the energy that is conserved, meaning the amount of incoming light at any point in the scene is equal to the sum of the reflected, transmitted, and absorbed light at that point.<br>PBR最重要的物理定律是能量守恒定律。该定律指出孤立系统内的总能量保持不变，但这与渲染有何关系？在PBR中，辐射是守恒的能量，意味着场景中任何点的入射光量等于该点处的反射光，透射光和吸收光的总和
 
 Within any environment, it is easy to see several examples of complicated surfaces that seem to interact with light differently. For example, mirrors reflect perfect images, plastics are shiny, and chalkboards are matte. All of these unique properties can be modeled by considering general mathematical functions called **Bidirectional Scattering Distribution Functions** (**BSDFs**). These functions describe how light scatters upon contact with a surface based on the properties that surface holds. More specifically, they follow a statistical model to tell the user how likely the incident light is scattered in a specific outgoing direction.<br>在任何环境中，很容易看到几个复杂曲面的例子，它们似乎与光的交互方式不同。例如，镜子反射完美的图像，塑料有光泽，黑板是无光泽的。所有这些独特属性都可以通过考虑称为双向散射分布函数（BSDF）的一般数学函数来建模。这些函数描述了光在与表面接触时如何根据表面所具有的属性进行散射。更具体地说，它们遵循统计模型来告诉用户入射光在特定输出方向上散射的可能性
 
-BSDF sounds like a very complicated term for what it actually means, so let’s break it up and explain its parts...  
-* **Bidirectional** refers to the notion that at any point on a surface, light comes in and light goes out.
-* **Scatter** describes that light coming from one direction onto a surface can end up splitting into a range of directions. For example, light can either scatter by being reflected from or transmitted through the surface in certain directions.
-* Finally, the details for how light scatters can be described using **distribution functions**, which entail how light is likely to be distributed in certain directions based on the physical properties of the surface. This can be anything from an equal scatter in all directions to a perfect reflection in a single direction.
+BSDF sounds like a very complicated term for what it actually means, so let’s break it up and explain its parts...  <brBSDF对于它实际意味着什么听起来是一个非常复杂的术语，所以让我们分解并解释它的各个部分<br>
+* **Bidirectional** refers to the notion that at any point on a surface, light comes in and light goes out.<br>双向是指在表面上的任何点处，光进入并且光熄灭的概念<br>
+* **Scatter** describes that light coming from one direction onto a surface can end up splitting into a range of directions. For example, light can either scatter by being reflected from or transmitted through the surface in certain directions.<br>散射描述了从一个方向到达表面的光最终会分裂成一系列方向。例如，光可以通过在某些方向上从表面反射或表面透过而散射<br>
+* Finally, the details for how light scatters can be described using **distribution functions**, which entail how light is likely to be distributed in certain directions based on the physical properties of the surface. This can be anything from an equal scatter in all directions to a perfect reflection in a single direction.<br>最后，可以使用分布函数来描述光散射的细节，分布函数需要基于表面的物理特性计算在某些方向上光的散射。这可以是从所有方向上的相等散射到单个方向上的完美反射的任何事物
 
-To help better understand the kinds of BSDFs that occur, we can consider two general types...
-* **BRDFs** (Bidirectional Reflectance Distribution Functions) specifically correspond to BSDFs that describe how light is _reflected_ from a surface. This reflected light refers to the colors we see coming directly from a surface. At this point, it is normal to ask something along the lines of the following: If I shine a white light at a banana, why does it appear yellow instead of white? This is because not all light is just reflected from a surface. While surfaces reflect light of certain colors (wavelengths), they absorb or transmit the remaining energy. For bananas, wavelengths in the yellow spectrum are mainly reflected while other wavelengths are absorbed.
-* **BTDFs** (Bidirectional Transmittance Distribution Functions) specifically correspond to BSDFs that describe how light is _transmitted_ through a surface. This can be seen in examples such as glass and plastics where we can see light that has traveled through the surface.
+To help better understand the kinds of BSDFs that occur, we can consider two general types...<br>为了更好地理解发生的BSDF种类，我们可以考虑两种一般类型<br>
+* **BRDFs** (Bidirectional Reflectance Distribution Functions) specifically correspond to BSDFs that describe how light is _reflected_ from a surface. This reflected light refers to the colors we see coming directly from a surface. At this point, it is normal to ask something along the lines of the following: If I shine a white light at a banana, why does it appear yellow instead of white? This is because not all light is just reflected from a surface. While surfaces reflect light of certain colors (wavelengths), they absorb or transmit the remaining energy. For bananas, wavelengths in the yellow spectrum are mainly reflected while other wavelengths are absorbed.<br>（双向反射分布函数）特别对应于描述光如何从表面反射的BSDF。这种反射光指的是我们看到的直接来自表面的颜色。在这一点上，通常会问以下问题：如果我在香蕉上发出白光，为什么它会显示为黄色而不是白色？这是因为并非所有的光都只是从表面反射出来。虽然表面反射某些颜色（波长）的光，但它们吸收或传输剩余的能量。对于香蕉，黄色光谱中的波长主要被反射，而其他波长被吸收<br>
+* **BTDFs** (Bidirectional Transmittance Distribution Functions) specifically correspond to BSDFs that describe how light is _transmitted_ through a surface. This can be seen in examples such as glass and plastics where we can see light that has traveled through the surface.<br>（双向透射率分布函数）具体对应于描述光如何穿过表面传输的BSDF。这可以在诸如玻璃和塑料的例子中看到，其中我们可以看到已经穿过表面的光。
 
-There exist other types of density functions that account for effects such as subsurface scattering (the effect in which light enters a material and bounces around before exiting again in some other position and direction).
+There exist other types of density functions that account for effects such as subsurface scattering (the effect in which light enters a material and bounces around before exiting again in some other position and direction).<br>还存在其他类型的密度函数，来计算光照效果诸如次表面散射（光进入材料并在其他位置和方向再次退出之前反弹）
 
 ## What are the reflection models?
 There are four general surface types with reflection distribution functions (BRDFs) that describe the probability that light scatters in all directions:
