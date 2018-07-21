@@ -69,38 +69,38 @@ These are approximated using the following terms...<br>导体：这些介质可�
 	
 	<img src="figures/Fresnel_Conductor.JPG" width="300" height="150"></img>
 
-    and Fresnel reflectance is modeled as **_F<sub>r</sub> = 0.5(r<sub>||</sub><sup>2</sup> + r<sub>⟂</sub><sup>2</sup>)_**.
+    and Fresnel reflectance is modeled as **_F<sub>r</sub> = 0.5(r<sub>||</sub><sup>2</sup> + r<sub>⟂</sub><sup>2</sup>)_**.菲涅耳反射率被建模为
 
-## Are all surfaces the same roughness?
-It is very useful to be able to show the roughness or smoothness of a surface without having to directly create the geometry or provide a bump map. Instead, surfaces can be modeled as a collection of small **microfacets** where the more rough a surface is, the more jagged microfacets it has. These microfacets can be thought of as small ridges on the surface of an object, varying the surface normal on a very fine level, which adds a lot of realism to rendered images. The distribution of microfacets on a surface can be described using a statistical model, examples of which include the [Oren-Nayar model](http://www1.cs.columbia.edu/CAVE/publications/pdfs/Oren_SIGGRAPH94.pdf), the [Torrance-Sparrow model](http://www.graphics.cornell.edu/~westin/pubs/TorranceSparrowJOSA1967.pdf), and the [Blinn Microfacet Distribution model](http://dl.acm.org/citation.cfm?id=563858.563893).
+## Are all surfaces the same roughness?<br>所有表面的粗糙度是否相同？
+It is very useful to be able to show the roughness or smoothness of a surface without having to directly create the geometry or provide a bump map. Instead, surfaces can be modeled as a collection of small **microfacets** where the more rough a surface is, the more jagged microfacets it has. These microfacets can be thought of as small ridges on the surface of an object, varying the surface normal on a very fine level, which adds a lot of realism to rendered images. The distribution of microfacets on a surface can be described using a statistical model, examples of which include the [Oren-Nayar model](http://www1.cs.columbia.edu/CAVE/publications/pdfs/Oren_SIGGRAPH94.pdf), the [Torrance-Sparrow model](http://www.graphics.cornell.edu/~westin/pubs/TorranceSparrowJOSA1967.pdf), and the [Blinn Microfacet Distribution model](http://dl.acm.org/citation.cfm?id=563858.563893).<br>能够在不必直接创建几何图形或提供凹凸贴图的情况下显示曲面的粗糙度或平滑度非常有用。相反，表面可以被建模为一个小型微平面的集合，其中表面越粗糙，它具有越多锯齿状的微平面。这些微平面可以被认为是物体表面上的小脊，在非常精细的水平上改变表面法线，这为渲染图像增加了许多真实感。可以使用统计模型来描述表面上的微平面的分布，其中的实例包括Oren-Nayar模型，Torrance-Sparrow模型和Blinn Microfacet分布模型
 
-With knowledge of these microfacets, we can simulate some interesting geometric interactions between light and adjacent ridges. Consider the following three scenarios:
+With knowledge of these microfacets, we can simulate some interesting geometric interactions between light and adjacent ridges. Consider the following three scenarios:<br>通过对这些微平面的了解，我们可以模拟光与相邻脊之间的一些有趣的几何相互作用。考虑以下三种情况
 
-1. An adjacent microfacet can block the light reflected from another, causing **masking**.
-2. An adjacent microfacet can block incoming light, causing **shadowing**.
-3. An adjacent microfacet can reflect light coming from the reflection of another, causing **interreflection**.
+1. An adjacent microfacet can block the light reflected from another, causing **masking**.<br>相邻的微平面可以阻挡从另一个平面反射的光，从而导致掩蔽<br>
+2. An adjacent microfacet can block incoming light, causing **shadowing**.<br>相邻的微平面可以阻挡入射光，从而导致阴影<br>
+3. An adjacent microfacet can reflect light coming from the reflection of another, causing **interreflection**.<br>相邻的微平面可以反射来自另一个平面的反射的光，引起相互反射
 
 <img src="figures/Masking.png" width="290" height="217"></img><img src="figures/Shadowing.png" width="290" height="217"></img><img src="figures/Interreflection.jpg" width="290" height="217"></img>
 
-Simulating these three phenomena can help augment the realism of roughness on a surface.
+Simulating these three phenomena can help augment the realism of roughness on a surface.<br>模拟这三种现象有助于增强表面粗糙度的真实感
 
-## What is a material?
-Materials are high-level descriptions used to model surfaces specified by mixtures of BRDFs and BTDFs. These BSDFs are specified as parameters that help frame the visual properties of the material. For example, we can describe a matte material by providing a diffuse reflection value to describe how light interacts with the surface and a scalar roughness value to describe its texture. To move from a matte to a plastic, we could simply add a glossy specular reflection value to the matte material to recreate the specular highlights that can be seen on plastics.
+## What is a material?<br>什么是材质？
+Materials are high-level descriptions used to model surfaces specified by mixtures of BRDFs and BTDFs. These BSDFs are specified as parameters that help frame the visual properties of the material. For example, we can describe a matte material by providing a diffuse reflection value to describe how light interacts with the surface and a scalar roughness value to describe its texture. To move from a matte to a plastic, we could simply add a glossy specular reflection value to the matte material to recreate the specular highlights that can be seen on plastics.<br>材料是用于模拟由BRDF和BTDF的混合物指定的表面的高级描述。这些BSDF被指定为有助于构建材料视觉属性的参数。例如，我们可以通过提供漫反射值来描述光线材料，以描述光与表面的相互作用以及标量粗糙度值来描述其纹理。要从遮罩移动到塑料，我们可以简单地为遮罩材料添加光泽镜面反射值，以重新创建可在塑料上看到的镜面高光
 
-Once a material has been described, we can then use this material on meshes throughout a 3D scene. You could create a single material and assign it to every object within a scene, but that would make for quite a boring application. With physically-based materials, we can create complex materials that bring a scene to life and offer visually compelling experiences to the user.
+Once a material has been described, we can then use this material on meshes throughout a 3D scene. You could create a single material and assign it to every object within a scene, but that would make for quite a boring application. With physically-based materials, we can create complex materials that bring a scene to life and offer visually compelling experiences to the user.<br>一旦描述了材料，我们就可以在3D场景中的网格上使用此材质。您可以创建单个材质并将其分配给场景中的每个对象，但这会使相当无聊的应用程序。借助基于物理的材料，我们可以创建复杂的材料，将场景变为现实，并为用户提供视觉上引人注目的体验
 
-To get a better idea of what we can create with this abstraction, here is a list of some common materials and what their descriptions might entail...
-* **Mirror** - Perfect specular reflection
-* **Metal** - Diffuse and specular reflections described by the Fresnel equations for conductors
-* **Clear Glass** - A combination of specular reflection and transmission
-* **Stained Glass** - Specular reflection and transmission as in clear glass, but with added diffuse reflection to account for the color
+To get a better idea of what we can create with this abstraction, here is a list of some common materials and what their descriptions might entail...<br>为了更好地了解我们可以使用这种抽象创建的内容，下面列出了一些常见材料及其描述可能带来的内容<br>
+* **Mirror** - Perfect specular reflection  完美的镜面反射
+* **Metal** - Diffuse and specular reflections described by the Fresnel equations for conductors  菲涅耳方程描述导体的漫反射和镜面反射
+* **Clear Glass** - A combination of specular reflection and transmission  镜面反射和透射的组合
+* **Stained Glass** - Specular reflection and transmission as in clear glass, but with added diffuse reflection to account for the color透明玻璃中的镜面反射和透射，但添加了漫反射以解释颜色
 
 ## Where does glTF come in?
-As you may know, [glTF](https://www.khronos.org/gltf) is a 3D file format that allows efficient transmission and loading of 3D scenes, including materials.
+As you may know, [glTF](https://www.khronos.org/gltf) is a 3D file format that allows efficient transmission and loading of 3D scenes, including materials.<br>您可能知道，glTF是一种3D文件格式，可以高效传输和加载3D场景，包括材质
 
-With the rise in demand for PBR materials within realtime applications, it has become clear that there is little consistency in the language used to describe these materials. For example, the parameters for physically-based materials used in Unreal Engine 4 are base color, roughness, metallic, and specular while Marmoset uses albedo, microsurface, and reflectivity. This creates a language barrier between artists and developers who use different applications and makes it difficult for users to import and export files easily between them.
+With the rise in demand for PBR materials within realtime applications, it has become clear that there is little consistency in the language used to describe these materials. For example, the parameters for physically-based materials used in Unreal Engine 4 are base color, roughness, metallic, and specular while Marmoset uses albedo, microsurface, and reflectivity. This creates a language barrier between artists and developers who use different applications and makes it difficult for users to import and export files easily between them.<br>随着实时应用中对PBR材料的需求的增加，很明显用于描述这些材料的语言几乎没有一致性。例如，虚幻引擎4中使用的基于物理的材质的参数是基色，粗糙度，金属色和镜面反射，而Marmoset使用反照率，显微表面和反射率。这在使用不同应用程序的艺术家和开发人员之间造成了语言障碍，使用户很难在他们之间轻松导入和导出文件
 
-With this in mind, glTF aims to bring PBR to runtime engines in a consistent way that is simple to implement and sufficient for most use cases. This allows developers to reuse exporters and pipeline tools instead of creating application-specific ones. 
+With this in mind, glTF aims to bring PBR to runtime engines in a consistent way that is simple to implement and sufficient for most use cases. This allows developers to reuse exporters and pipeline tools instead of creating application-specific ones. <br>考虑到这一点，glTF旨在以一致的方式将PBR引入运行时引擎，这种方式易于实现且足以满足大多数用例。这允许开发人员重用导出器和管道工具，而不是创建特定于应用程序的工具
 
 ## References
 * [_Physically-Based Rendering, And You Can Too!_](https://www.marmoset.co/posts/physically-based-rendering-and-you-can-too/), by Joe "Earthquake" Wilson
