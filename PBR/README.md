@@ -22,17 +22,17 @@ BSDF sounds like a very complicated term for what it actually means, so let’s 
 * Finally, the details for how light scatters can be described using **distribution functions**, which entail how light is likely to be distributed in certain directions based on the physical properties of the surface. This can be anything from an equal scatter in all directions to a perfect reflection in a single direction.<br>最后，可以使用分布函数来描述光散射的细节，分布函数需要基于表面的物理特性计算在某些方向上光的散射。这可以是从所有方向上的相等散射到单个方向上的完美反射的任何事物
 
 To help better understand the kinds of BSDFs that occur, we can consider two general types...<br>为了更好地理解发生的BSDF种类，我们可以考虑两种一般类型<br>
-* **BRDFs** (Bidirectional Reflectance Distribution Functions) specifically correspond to BSDFs that describe how light is _reflected_ from a surface. This reflected light refers to the colors we see coming directly from a surface. At this point, it is normal to ask something along the lines of the following: If I shine a white light at a banana, why does it appear yellow instead of white? This is because not all light is just reflected from a surface. While surfaces reflect light of certain colors (wavelengths), they absorb or transmit the remaining energy. For bananas, wavelengths in the yellow spectrum are mainly reflected while other wavelengths are absorbed.<br>（双向反射分布函数）特别对应于描述光如何从表面反射的BSDF。这种反射光指的是我们看到的直接来自表面的颜色。在这一点上，通常会问以下问题：如果我在香蕉上发出白光，为什么它会显示为黄色而不是白色？这是因为并非所有的光都只是从表面反射出来。虽然表面反射某些颜色（波长）的光，但它们吸收或传输剩余的能量。对于香蕉，黄色光谱中的波长主要被反射，而其他波长被吸收<br>
+* **BRDFs** (Bidirectional Reflectance Distribution Functions) specifically correspond to BSDFs that describe how light is _reflected_ from a surface. This reflected light refers to the colors we see coming directly from a surface. At this point, it is normal to ask something along the lines of the following: If I shine a white light at a banana, why does it appear yellow instead of white? This is because not all light is just reflected from a surface. While surfaces reflect light of certain colors (wavelengths), they absorb or transmit the remaining energy. For bananas, wavelengths in the yellow spectrum are mainly reflected while other wavelengths are absorbed.<br>（双向反射分布函数）特别对应于描述光如何从表面反射的BSDF。这种反射光指的是我们看到的直接来自表面的颜色。在这一点上，通常会问以下问题：如果我在香蕉上发出白光，为什么它会显示为黄色而不是白色？这是因为并非所有的光都只是从表面反射出来。虽然表面反射某些颜色（波长）的光，但它们吸收或传输剩余的能量。对于香蕉，黄色光谱中的波长主要被反射，而其他波长被吸收<br><br>
 * **BTDFs** (Bidirectional Transmittance Distribution Functions) specifically correspond to BSDFs that describe how light is _transmitted_ through a surface. This can be seen in examples such as glass and plastics where we can see light that has traveled through the surface.<br>（双向透射率分布函数）具体对应于描述光如何穿过表面传输的BSDF。这可以在诸如玻璃和塑料的例子中看到，其中我们可以看到已经穿过表面的光。
 
 There exist other types of density functions that account for effects such as subsurface scattering (the effect in which light enters a material and bounces around before exiting again in some other position and direction).<br>还存在其他类型的密度函数，来计算光照效果诸如次表面散射（光进入材料并在其他位置和方向再次退出之前反弹）
 
-## What are the reflection models?
-There are four general surface types with reflection distribution functions (BRDFs) that describe the probability that light scatters in all directions:
-* **Diffuse** – surfaces that scatter light equally in all directions, e.g., even color of a chalkboard
-* **Glossy specular** – surfaces that scatter light preferentially in a set of reflected directions and show blurry reflections, e.g., specular highlights on plastic
-* **Perfect specular** – surfaces that scatter light in a single outgoing direction such that the angle of incident light is equal to the outgoing light with respect to the surface normal, e.g., perfect reflection of mirrors
-* **Retro-reflective** – surfaces that scatter light primarily back along the incident direction of the light source, e.g., specular highlights on velvet
+## What are the reflection models? <br>什么是反射模型？
+There are four general surface types with reflection distribution functions (BRDFs) that describe the probability that light scatters in all directions:<br>有四种具有反射分布函数（BRDF）的一般表面类型，用于描述光在所有方向上散射的概率：<br>
+* **Diffuse** – surfaces that scatter light equally in all directions, e.g., even color of a chalkboard <br>漫反射 - 在所有方向上均匀散射光的表面，例如，黑板的颜色<br>
+* **Glossy specular** – surfaces that scatter light preferentially in a set of reflected directions and show blurry reflections, e.g., specular highlights on plastic <br>有光泽的镜面 - 优先在一组反射方向上散射光线并显示模糊反射的表面，例如塑料上的镜面高光<br>
+* **Perfect specular** – surfaces that scatter light in a single outgoing direction such that the angle of incident light is equal to the outgoing light with respect to the surface normal, e.g., perfect reflection of mirrors  <br>完美的镜面反射 - 在单个出射方向上散射光的表面，使得入射光的角度等于相对于表面法线的出射光，例如镜子的完美反射<br>
+* **Retro-reflective** – surfaces that scatter light primarily back along the incident direction of the light source, e.g., specular highlights on velvet<br>逆反射 - 这些表面主要沿光源的入射方向散射光，例如天鹅绒上的镜面高光
 
 <img src="figures/BRDFs.png"></img>
 
