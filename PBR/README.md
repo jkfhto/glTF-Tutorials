@@ -45,7 +45,7 @@ For each of these types of reflection, the distributions can be isotropic or ani
 ## What about BTDFs?
 The types of reflection distributions also apply to transmission (excluding retro-reflection), but conversely discuss how light travels after passing through a surface. The direction light travels after passing through the material is often dependent on the properties of the material itself.<br>反射分布的类型也适用于透射（不包括后向反射），但相反地讨论光在穿过表面后如何行进。光穿过材料后行进的方向通常取决于材料本身的特性
 
-To discuss how this differs from reflection, consider a single light ray that has passed through a surface, as in the case of perfect specular transmission. For perfect specular transmission, the angle at which the light continues to propagate depends on the **index of refraction** of the medium. This follows **Snell’s Law**, which is described using the equation **_n<sub>1</sub>θ<sub>1</sub> = n<sub>2</sub>θ<sub>2</sub>_**.<br>要讨论它与反射的不同之处，请考虑通过表面的单个光线，如完美镜面透射的情况。对于完美的镜面透射，光继续传播的角度取决于介质的折射率。这遵循斯涅尔定律，其使用等式n1θ1=n2θ2来描述
+To discuss how this differs from reflection, consider a single light ray that has passed through a surface, as in the case of perfect specular transmission. For perfect specular transmission, the angle at which the light continues to propagate depends on the **index of refraction** of the medium. This follows **Snell’s Law**, which is described using the equation **_n<sub>1</sub>θ<sub>1</sub> = n<sub>2</sub>θ<sub>2</sub>_**.<br>要讨论它与反射的不同之处，请考虑通过表面的单个光线，如完美镜面透射的情况。对于完美的镜面透射，光继续传播的角度取决于介质的折射率。这遵循斯涅尔定律，其使用等式**_n<sub>1</sub>θ<sub>1</sub> = n<sub>2</sub>θ<sub>2</sub>_**来描述
 
 <img src="figures/BTDFs.png" width="300" height="237"></img>
 
@@ -62,7 +62,7 @@ These amounts are directly related to each other and described by the **Fresnel 
     <img src="figures/Fresnel_Dielectric.JPG" width="240" height="150"></img>
 
     where _r<sub>||</sub>_ is the Fresnel reflectance for parallel polarized light and _r<sub>⟂</sub>_ is the reflectance for perpendicular polarized light. The subscripts correspond to incident (_i_) and transmitted (_t_) directions.
-For unpolarized light, Fresnel reflectance can be modeled as **_F<sub>r</sub> = 0.5(r<sub>||</sub><sup>2</sup> + r<sub>⟂</sub><sup>2</sup>)_**. Then, due to conservation of energy, Fresnel transmittance can be modeled as **_F<sub>t</sub> = 1 - F<sub>r</sub>_**.<br>其中r||是平行偏振光的菲涅耳反射率，r⟂是垂直偏振光的反射率。下标对应于入射（i）和出射（t）方向。对于非偏振光，菲涅耳反射率可以建模为Fr = 0.5(r||2 + r⟂2)。然后，由于能量守恒，菲涅耳透射率可以建模为Ft = 1 - Fr
+For unpolarized light, Fresnel reflectance can be modeled as **_F<sub>r</sub> = 0.5(r<sub>||</sub><sup>2</sup> + r<sub>⟂</sub><sup>2</sup>)_**. Then, due to conservation of energy, Fresnel transmittance can be modeled as **_F<sub>t</sub> = 1 - F<sub>r</sub>_**.<br>其中r||是平行偏振光的菲涅耳反射率，r⟂是垂直偏振光的反射率。下标对应于入射（i）和出射（t）方向。对于非偏振光，菲涅耳反射率可以建模为**_F<sub>r</sub> = 0.5(r<sub>||</sub><sup>2</sup> + r<sub>⟂</sub><sup>2</sup>)_**。然后，由于能量守恒，菲涅耳透射率可以建模为Ft = 1 - Fr
 
 * **Conductors**: These are media such that transmit heat and electricity with a certain capacity. Some examples include most (but not all) metals such as copper, silver, and gold. Unlike dielectrics, conductors don’t transmit light. Instead, they absorb some of the incident light, which gets transferred into heat. The amount of absorbed light is described using an **absorption coefficient**, _k_, for the conductor.
 These are approximated using the following terms...<br>导体：这些介质可以传输具有一定容量的热量和电力。一些例子包括大多数（但不是全部）金属，例如铜，银和金。与电介质不同，导体不透光。相反，它们会吸收一些入射光，这些光会转移到热量中。使用导体的吸收系数k来描述吸收的光量。这些是使用以下术语近似的
