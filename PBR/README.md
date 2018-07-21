@@ -28,35 +28,35 @@ To help better understand the kinds of BSDFs that occur, we can consider two gen
 There exist other types of density functions that account for effects such as subsurface scattering (the effect in which light enters a material and bounces around before exiting again in some other position and direction).<br>还存在其他类型的密度函数，来计算光照效果诸如次表面散射（光进入材料并在其他位置和方向再次退出之前反弹）
 
 ## What are the reflection models? <br>什么是反射模型？
-There are four general surface types with reflection distribution functions (BRDFs) that describe the probability that light scatters in all directions:<br>有四种具有反射分布函数（BRDF）的一般表面类型，用于描述光在所有方向上散射的概率：<br>
-* **Diffuse** – surfaces that scatter light equally in all directions, e.g., even color of a chalkboard <br>漫反射 - 在所有方向上均匀散射光的表面，例如，黑板的颜色<br>
-* **Glossy specular** – surfaces that scatter light preferentially in a set of reflected directions and show blurry reflections, e.g., specular highlights on plastic <br>有光泽的镜面 - 优先在一组反射方向上散射光线并显示模糊反射的表面，例如塑料上的镜面高光<br>
-* **Perfect specular** – surfaces that scatter light in a single outgoing direction such that the angle of incident light is equal to the outgoing light with respect to the surface normal, e.g., perfect reflection of mirrors  <br>完美的镜面反射 - 在单个出射方向上散射光的表面，使得入射光的角度等于相对于表面法线的出射光，例如镜子的完美反射<br>
+There are four general surface types with reflection distribution functions (BRDFs) that describe the probability that light scatters in all directions:<br>有四种具有反射分布函数（BRDF）的一般表面类型，用于描述光在所有方向上散射的概率：<br><br>
+* **Diffuse** – surfaces that scatter light equally in all directions, e.g., even color of a chalkboard <br>漫反射 - 在所有方向上均匀散射光的表面，例如，黑板的颜色<br><br>
+* **Glossy specular** – surfaces that scatter light preferentially in a set of reflected directions and show blurry reflections, e.g., specular highlights on plastic <br>有光泽的镜面 - 优先在一组反射方向上散射光线并显示模糊反射的表面，例如塑料上的镜面高光<br><br>
+* **Perfect specular** – surfaces that scatter light in a single outgoing direction such that the angle of incident light is equal to the outgoing light with respect to the surface normal, e.g., perfect reflection of mirrors  <br>完美的镜面反射 - 在单个出射方向上散射光的表面，使得入射光的角度等于相对于表面法线的出射光，例如镜子的完美反射<br><br>
 * **Retro-reflective** – surfaces that scatter light primarily back along the incident direction of the light source, e.g., specular highlights on velvet<br>逆反射 - 这些表面主要沿光源的入射方向散射光，例如天鹅绒上的镜面高光
 
 <img src="figures/BRDFs.png"></img>
 
-However, it is highly unlikely that a surface in reality will follow only one of these models. Because of this, most materials can be modeled as a complex mix of these.
+However, it is highly unlikely that a surface in reality will follow only one of these models. Because of this, most materials can be modeled as a complex mix of these.<br>然而，现实中的表面极不可能仅遵循这些模型中的一个。因此，大多数材料可以模拟为这些材料的复杂混合物
 
-For each of these types of reflection, the distributions can be isotropic or anisotropic.
-* **Isotropic** – The amount of light reflected doesn’t change at a point when rotating the object about its normal. This is true for most surfaces we see in daily life.
-* **Anisotropic** – The amount of light varies at a point as the object is rotated about its normal. This occurs because the small bumps and grooves on the surface are mostly oriented in the same direction instead of randomly, which results in elongated and blurry reflections. This can be seen in certain materials such as in brushed metal and velvet.
+For each of these types of reflection, the distributions can be isotropic or anisotropic.<br>对于这些类型的反射中的每一种，分布可以是各向同性的或各向异性的<br>
+* **Isotropic** – The amount of light reflected doesn’t change at a point when rotating the object about its normal. This is true for most surfaces we see in daily life.<br>各向同性 - 当物体围绕其法线旋转时，反射的光量不会发生变化。对于我们在日常生活中看到的大多数表面都是如此<br><br>
+* **Anisotropic** – The amount of light varies at a point as the object is rotated about its normal. This occurs because the small bumps and grooves on the surface are mostly oriented in the same direction instead of randomly, which results in elongated and blurry reflections. This can be seen in certain materials such as in brushed metal and velvet.<br>各向异性 - 当物体围绕其法线旋转时，光线的数量会发生变化。发生这种情况是因为表面上的小凸起和凹槽大多朝向相同方向而不是随机方向，这导致细长且模糊的反射。这可以在某些材料中看到，例如拉丝金属和天鹅绒
 
 ## What about BTDFs?
-The types of reflection distributions also apply to transmission (excluding retro-reflection), but conversely discuss how light travels after passing through a surface. The direction light travels after passing through the material is often dependent on the properties of the material itself.
+The types of reflection distributions also apply to transmission (excluding retro-reflection), but conversely discuss how light travels after passing through a surface. The direction light travels after passing through the material is often dependent on the properties of the material itself.<br>反射分布的类型也适用于透射（不包括后向反射），但相反地讨论光在穿过表面后如何行进。光穿过材料后行进的方向通常取决于材料本身的特性
 
-To discuss how this differs from reflection, consider a single light ray that has passed through a surface, as in the case of perfect specular transmission. For perfect specular transmission, the angle at which the light continues to propagate depends on the **index of refraction** of the medium. This follows **Snell’s Law**, which is described using the equation **_n<sub>1</sub>θ<sub>1</sub> = n<sub>2</sub>θ<sub>2</sub>_**.
+To discuss how this differs from reflection, consider a single light ray that has passed through a surface, as in the case of perfect specular transmission. For perfect specular transmission, the angle at which the light continues to propagate depends on the **index of refraction** of the medium. This follows **Snell’s Law**, which is described using the equation **_n<sub>1</sub>θ<sub>1</sub> = n<sub>2</sub>θ<sub>2</sub>_**.<br>要讨论它与反射的不同之处，请考虑通过表面的单个光线，如完美镜面透射的情况。对于完美的镜面透射，光继续传播的角度取决于介质的折射率。这遵循斯涅尔定律，其使用等式n1θ1=n2θ2来描述
 
 <img src="figures/BTDFs.png" width="300" height="237"></img>
 
-where _n_ is the index of refraction of the first and second media and _θ_ is the angle of the light with respect to the normal as it hits then passes through the surface. This means that if the indices of refraction of both media are the same, then light continues perfectly straight. However, if the indices are different, light will bend in a different direction once passing on to the next medium. A good example of this is how light moving from the air into water gets bent, causing distortions in what we see in the water.
+where _n_ is the index of refraction of the first and second media and _θ_ is the angle of the light with respect to the normal as it hits then passes through the surface. This means that if the indices of refraction of both media are the same, then light continues perfectly straight. However, if the indices are different, light will bend in a different direction once passing on to the next medium. A good example of this is how light moving from the air into water gets bent, causing distortions in what we see in the water.<br>其中n是第一和第二介质的折射率，θ是光击中然后穿过表面时相对于法线的角度。这意味着如果两种介质的折射率相同，那么光继续完全笔直。但是，如果指数不同，一旦传递到下一个介质，光将以不同的方向弯曲。这方面的一个很好的例子是从空气中流入水中的光是如何弯曲的，导致我们在水中看到的扭曲
 
-This is unlike perfect specular _reflection_ where the incident angle will always be equal to the outgoing angle.
+This is unlike perfect specular _reflection_ where the incident angle will always be equal to the outgoing angle.<br>这与完美的镜面反射不同，其中入射角总是等于出射角
 
-## How much light is reflected and transmitted?
-It is important for physically-based renderers to know how much light is reflected or transmitted on a surface. It is a combination of these effects that describe substances such as honey and stained glass that both have color and can be seen through. 
+## How much light is reflected and transmitted?<br>反射和透射多少光？
+It is important for physically-based renderers to know how much light is reflected or transmitted on a surface. It is a combination of these effects that describe substances such as honey and stained glass that both have color and can be seen through. <br>对于基于物理的渲染器而言，重要的是要知道在表面上反射或透射了多少光。这些效果的组合可以描述蜂蜜和彩色玻璃等物质，它们都具有颜色并且可以透视
 
-These amounts are directly related to each other and described by the **Fresnel equations**. The equations are described for two types of media, _dielectrics_ and _conductors_. 
+These amounts are directly related to each other and described by the **Fresnel equations**. The equations are described for two types of media, _dielectrics_ and _conductors_. <br>这些量彼此直接相关并由菲涅耳方程描述。该方程描述了两种类型的介质，电介质和导体<br>
 * **Dielectrics**: These are media such as glass, plastic, and ceramics, that transmit electricity without conducting (i.e. insulators). We can approximate the amount of energy that is reflected and transmitted by these surfaces using the following equations...
 
     <img src="figures/Fresnel_Dielectric.JPG" width="240" height="150"></img>
