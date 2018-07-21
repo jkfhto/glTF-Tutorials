@@ -62,7 +62,7 @@ These amounts are directly related to each other and described by the **Fresnel 
     <img src="figures/Fresnel_Dielectric.JPG" width="240" height="150"></img>
 
     where _r<sub>||</sub>_ is the Fresnel reflectance for parallel polarized light and _r<sub>⟂</sub>_ is the reflectance for perpendicular polarized light. The subscripts correspond to incident (_i_) and transmitted (_t_) directions.
-For unpolarized light, Fresnel reflectance can be modeled as **_F<sub>r</sub> = 0.5(r<sub>||</sub><sup>2</sup> + r<sub>⟂</sub><sup>2</sup>)_**. Then, due to conservation of energy, Fresnel transmittance can be modeled as **_F<sub>t</sub> = 1 - F<sub>r</sub>_**.<br>其中r||是平行偏振光的菲涅耳反射率，r⟂是垂直偏振光的反射率。下标对应于事件（i）和传输（t）方向。对于非偏振光，菲涅耳反射率可以建模为Fr = 0.5(r||2 + r⟂2)。然后，由于能量守恒，菲涅耳透射率可以建模为Ft = 1 - Fr
+For unpolarized light, Fresnel reflectance can be modeled as **_F<sub>r</sub> = 0.5(r<sub>||</sub><sup>2</sup> + r<sub>⟂</sub><sup>2</sup>)_**. Then, due to conservation of energy, Fresnel transmittance can be modeled as **_F<sub>t</sub> = 1 - F<sub>r</sub>_**.<br>其中r||是平行偏振光的菲涅耳反射率，r⟂是垂直偏振光的反射率。下标对应于入射（i）和出射（t）方向。对于非偏振光，菲涅耳反射率可以建模为Fr = 0.5(r||2 + r⟂2)。然后，由于能量守恒，菲涅耳透射率可以建模为Ft = 1 - Fr
 
 * **Conductors**: These are media such that transmit heat and electricity with a certain capacity. Some examples include most (but not all) metals such as copper, silver, and gold. Unlike dielectrics, conductors don’t transmit light. Instead, they absorb some of the incident light, which gets transferred into heat. The amount of absorbed light is described using an **absorption coefficient**, _k_, for the conductor.
 These are approximated using the following terms...<br>导体：这些介质可以传输具有一定容量的热量和电力。一些例子包括大多数（但不是全部）金属，例如铜，银和金。与电介质不同，导体不透光。相反，它们会吸收一些入射光，这些光会转移到热量中。使用导体的吸收系数k来描述吸收的光量。这些是使用以下术语近似的
