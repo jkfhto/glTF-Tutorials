@@ -57,15 +57,15 @@ This is unlike perfect specular _reflection_ where the incident angle will alway
 It is important for physically-based renderers to know how much light is reflected or transmitted on a surface. It is a combination of these effects that describe substances such as honey and stained glass that both have color and can be seen through. <br>对于基于物理的渲染器而言，重要的是要知道在表面上反射或透射了多少光。这些效果的组合可以描述蜂蜜和彩色玻璃等物质，它们都具有颜色并且可以透视
 
 These amounts are directly related to each other and described by the **Fresnel equations**. The equations are described for two types of media, _dielectrics_ and _conductors_. <br>这些量彼此直接相关并由菲涅耳方程描述。该方程描述了两种类型的介质，电介质和导体<br>
-* **Dielectrics**: These are media such as glass, plastic, and ceramics, that transmit electricity without conducting (i.e. insulators). We can approximate the amount of energy that is reflected and transmitted by these surfaces using the following equations...
+* **Dielectrics**: These are media such as glass, plastic, and ceramics, that transmit electricity without conducting (i.e. insulators). We can approximate the amount of energy that is reflected and transmitted by these surfaces using the following equations...<br>电介质：这些是诸如玻璃，塑料和陶瓷之类的介质，它们在不导电的情况下传输电（即绝缘体）。我们可以使用以下等式估算这些表面反射和透射的能量的量
 
     <img src="figures/Fresnel_Dielectric.JPG" width="240" height="150"></img>
 
     where _r<sub>||</sub>_ is the Fresnel reflectance for parallel polarized light and _r<sub>⟂</sub>_ is the reflectance for perpendicular polarized light. The subscripts correspond to incident (_i_) and transmitted (_t_) directions.
-For unpolarized light, Fresnel reflectance can be modeled as **_F<sub>r</sub> = 0.5(r<sub>||</sub><sup>2</sup> + r<sub>⟂</sub><sup>2</sup>)_**. Then, due to conservation of energy, Fresnel transmittance can be modeled as **_F<sub>t</sub> = 1 - F<sub>r</sub>_**.
+For unpolarized light, Fresnel reflectance can be modeled as **_F<sub>r</sub> = 0.5(r<sub>||</sub><sup>2</sup> + r<sub>⟂</sub><sup>2</sup>)_**. Then, due to conservation of energy, Fresnel transmittance can be modeled as **_F<sub>t</sub> = 1 - F<sub>r</sub>_**.<br>其中r||是平行偏振光的菲涅耳反射率，r⟂是垂直偏振光的反射率。下标对应于事件（i）和传输（t）方向。对于非偏振光，菲涅耳反射率可以建模为Fr = 0.5(r||2 + r⟂2)。然后，由于能量守恒，菲涅耳透射率可以建模为Ft = 1 - Fr
 
 * **Conductors**: These are media such that transmit heat and electricity with a certain capacity. Some examples include most (but not all) metals such as copper, silver, and gold. Unlike dielectrics, conductors don’t transmit light. Instead, they absorb some of the incident light, which gets transferred into heat. The amount of absorbed light is described using an **absorption coefficient**, _k_, for the conductor.
-These are approximated using the following terms...
+These are approximated using the following terms...<br>导体：这些介质可以传输具有一定容量的热量和电力。一些例子包括大多数（但不是全部）金属，例如铜，银和金。与电介质不同，导体不透光。相反，它们会吸收一些入射光，这些光会转移到热量中。使用导体的吸收系数k来描述吸收的光量。这些是使用以下术语近似的
 	
 	<img src="figures/Fresnel_Conductor.JPG" width="300" height="150"></img>
 
