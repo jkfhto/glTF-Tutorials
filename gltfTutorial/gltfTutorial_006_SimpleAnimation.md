@@ -240,9 +240,9 @@ Finally, this is the part where the actual animation is added. The top-level `an
 - The `samplers`, which describe the sources of animation data;  <br>采样器，描述动画数据的来源<br>
 - The `channels`, which can be imagined as connecting a "source" of the animation data to a "target."  <br>通道可以被想象为将动画数据的“源”连接到“目标”
 
-In the given example, there is one sampler. Each sampler defines an `input` and an `output` property. They both refer to accessor objects. Here, these are the *times* accessor (with index 2) and the *rotations* accessor (with index 3) that have been described above. Additionally, the sampler defines an `interpolation` type, which is `"LINEAR"` in this example.
+In the given example, there is one sampler. Each sampler defines an `input` and an `output` property. They both refer to accessor objects. Here, these are the *times* accessor (with index 2) and the *rotations* accessor (with index 3) that have been described above. Additionally, the sampler defines an `interpolation` type, which is `"LINEAR"` in this example.<br>在给定的示例中，有一个采样器。每个采样器定义输入和输出属性。它们都引用了访问器对象。这里，这些是上面已经描述的时间访问器（具有索引2）和旋转访问器（具有索引3）。此外，采样器定义了插值类型，在此示例中为“LINEAR”
 
-There is also one `channel` in the example. This channel refers to the only sampler (with index 0) as the source of the animation data. The target of the animation is encoded in the `channel.target` object: it contains an `id` that refers to the node whose property should be animated. The actual node property is named in the `path`. So the channel target in the given example says that the `"rotation"` property of the node with index 0 should be animated.
+There is also one `channel` in the example. This channel refers to the only sampler (with index 0) as the source of the animation data. The target of the animation is encoded in the `channel.target` object: it contains an `id` that refers to the node whose property should be animated. The actual node property is named in the `path`. So the channel target in the given example says that the `"rotation"` property of the node with index 0 should be animated.<br>示例中还有一个通道。此通道引用唯一的采样器（索引为0）作为动画数据的来源。动画的目标在channel.target对象中编码：它包含一个id，该id引用应对其属性进行动画处理的节点。实际的节点属性在路径中命名。因此，给定示例中的通道目标表示应该为索引为0的节点的“rotation”属性设置动画
 
 
 ```javascript
@@ -266,11 +266,11 @@ There is also one `channel` in the example. This channel refers to the only samp
   ],
 ```
 
-Combining all this information, the given animation object says the following:
+Combining all this information, the given animation object says the following:<br>结合所有这些信息，给定的动画对象说明如下
 
-> During the animation, the animated values are obtained from the *rotations* accessor. They are interpolated linearly, based on the current simulation time and the key frame times that are provided by the *times* accessor. The interpolated values are then written into the `"rotation"` property of the node with index 0.
+> During the animation, the animated values are obtained from the *rotations* accessor. They are interpolated linearly, based on the current simulation time and the key frame times that are provided by the *times* accessor. The interpolated values are then written into the `"rotation"` property of the node with index 0.<br>在动画期间，从旋转访问器获得动画值。 它们基于当前模拟时间和时间访问器提供的关键帧时间线性插值。 然后将内插值写入索引为0的节点的“rotation”属性中
 
-A more detailed description and actual examples for the interpolation and the computations that are involved here can be found in the [Animations](gltfTutorial_007_Animations.md) section.
+A more detailed description and actual examples for the interpolation and the computations that are involved here can be found in the [Animations](gltfTutorial_007_Animations.md) section.<br>这里涉及的插值和计算的更详细描述和实际示例可以在[Animations]部分中找到
 
 
 
