@@ -1,9 +1,10 @@
 Previous: [Buffers, BufferViews, and Accessors](gltfTutorial_005_BuffersBufferViewsAccessors.md) | [Table of Contents](README.md) | Next: [Animations](gltfTutorial_007_Animations.md)
 
 
-# A Simple Animation
+# A Simple Animation 一个简单的动画
 
 As shown in the [Scenes and Nodes](gltfTutorial_004_ScenesNodes.md) section, each node can have a local transform. This transform can be given either by the `matrix` property of the node or by using the `translation`, `rotation`, and `scale` (TRS) properties.
+如“场景和节点”部分所示，每个节点都可以具有局部变换。 此变换可以通过节点的矩阵属性或通过使用平移，旋转和缩放（TRS）属性来给出
 
 When the transform is given by the TRS properties, an [`animation`](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/#reference-animation) can be used to describe how the `translation`, `rotation`, or `scale` of a node changes over time.
 
