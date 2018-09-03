@@ -50,9 +50,9 @@ Depending on the shading model, additional effects can be applied to the object 
 
 根据着色模型的不同，可以将其他效果应用于物体表面。这些通常是作为纹理和缩放因子的组合给出的：
 
-- An *emissive* texture describes the parts of the object surface that emit light with a certain color.
-- The *occlusion* texture can be used to simulate the effect of objects self-shadowing each other.
-- The *normal map* is a texture applied to modulate the surface normal in a way that makes it possible to simulate finer geometric details without the cost of a higher mesh resolution.
+- An *emissive* texture describes the parts of the object surface that emit light with a certain color.<br>发光纹理描述了发射具有特定颜色的光的物体表面的部分。<br>
+- The *occlusion* texture can be used to simulate the effect of objects self-shadowing each other.<br>遮挡纹理可用于模拟彼此自遮蔽的对象的效果<br>
+- The *normal map* is a texture applied to modulate the surface normal in a way that makes it possible to simulate finer geometric details without the cost of a higher mesh resolution.<br>法线贴图是一种纹理，用于调整表面法线，使得可以模拟更精细的几何细节而无需更高的网格分辨率
 
 glTF supports all of these additional properties, and defines sensible default values for the cases that these properties are omitted.
 
